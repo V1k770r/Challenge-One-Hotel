@@ -1,19 +1,39 @@
 package com.AluraHotel.model;
 
+import javax.persistence.*;
+import java.util.Date;
+
+@Entity
+@Table(name="huespedes")
 public class Huespedes {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(nullable = false)
     private int id;
+
+    @Column(nullable = false, length = 30, unique = true)
     private String nombre;
+
+    @Column(nullable = false, length = 30, unique = true)
     private String apellido;
-    private String fechaDeNacimiento;
+
+    @Column(nullable = false)
+    private Date fechaDeNacimiento;
+
+    @Column(nullable = false, length = 40)
     private String nacionalidad;
+
+    @Column(nullable = false, length = 15)
     private String telefono;
+
+    @Column(name = "id_rserva", nullable = false)
     private int idReserva;
 
     public Huespedes() {
     }
 
-    public Huespedes(int id, String nombre, String apellido, String fechaDeNacimiento, String nacionalidad, String telefono, int idReserva) {
+    public Huespedes(int id, String nombre, String apellido, Date fechaDeNacimiento, String nacionalidad, String telefono, int idReserva) {
         this.id = id;
         this.nombre = nombre;
         this.apellido = apellido;
@@ -48,11 +68,11 @@ public class Huespedes {
         this.apellido = apellido;
     }
 
-    public String getFechaDeNacimiento() {
+    public Date getFechaDeNacimiento() {
         return fechaDeNacimiento;
     }
 
-    public void setFechaDeNacimiento(String fechaDeNacimiento) {
+    public void setFechaDeNacimiento(Date fechaDeNacimiento) {
         this.fechaDeNacimiento = fechaDeNacimiento;
     }
 
@@ -80,4 +100,16 @@ public class Huespedes {
         this.idReserva = idReserva;
     }
 
+    @Override
+    public String toString() {
+        return "Huespedes{" +
+                "id=" + id +
+                ", nombre='" + nombre + '\'' +
+                ", apellido='" + apellido + '\'' +
+                ", fechaDeNacimiento=" + fechaDeNacimiento +
+                ", nacionalidad='" + nacionalidad + '\'' +
+                ", telefono='" + telefono + '\'' +
+                ", idReserva=" + idReserva +
+                '}';
+    }
 }
