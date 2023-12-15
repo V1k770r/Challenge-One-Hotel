@@ -27,7 +27,7 @@ public class Huespedes {
     @Column(nullable = false, length = 15)
     private String telefono;
 
-    @Column(name = "id_rserva", nullable = false)
+    @Column(name = "id_reserva", nullable = false)
     private int idReserva;
 
     public Huespedes() {
