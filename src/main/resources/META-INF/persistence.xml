@@ -4,7 +4,7 @@
 <persistence-unit name="myPersistenceUnit" transaction-type="RESOURCE_LOCAL">
 
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
-        <class>com.AluraHotel.model.Huespedes</class>
+        <class>com.AluraHotel.model.HuespedEntity</class>
 
         <properties>
             <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/alurahotel"/>

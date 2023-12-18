@@ -1,11 +1,10 @@
 package com.AluraHotel.main;
 
-import com.AluraHotel.model.Huespedes;
+import com.AluraHotel.model.HuespedEntity;
+import com.AluraHotel.model.ReservasEntity;
 import com.AluraHotel.util.UtilEntity;
 
 import javax.persistence.EntityManager;
-import java.text.DateFormat;
-import java.text.ParseException;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -14,27 +13,30 @@ public class Main {
     public static void main(String[] args) {
 
         EntityManager em = UtilEntity.getEntityManager();
-        List<Huespedes> huespedes = em.createQuery("SELECT e FROM Huespedes e", Huespedes.class).getResultList();
+        List<HuespedEntity> huespedes = em.createQuery("SELECT e FROM HuespedEntity e", HuespedEntity.class).getResultList();
         System.out.println("-------Listar TODOS---------");
         huespedes.forEach(System.out::println);
 
-        /*System.out.println("----CREAR UNO-------");
+//        System.out.println("----CREAR UNO-------");
 
-        Huespedes newHuesped = new Huespedes();
-        newHuesped.setNombre("Karla");
-        newHuesped.setApellido("Perez");
-        newHuesped.setNacionalidad("Uruguaya");
-        newHuesped.setFechaDeNacimiento(new Date(1986, Calendar.FEBRUARY,10));
-        newHuesped.setTelefono("888888888");
-        newHuesped.setIdReserva(0002);
+//        HuespedEntity newHuesped = new HuespedEntity();
+//        newHuesped.setId("001");
+//        newHuesped.setNombre("Karla2");
+//        newHuesped.setApellido("Perez2");
+//        newHuesped.setNacionalidad("Uruguaya");
+//        newHuesped.setFechaDeNacimiento(new Date(86, Calendar.FEBRUARY,10));
+//        newHuesped.setTelefono("1111111");
+//
+//
+//        em.getTransaction().begin();
+//        em.persist(newHuesped);
+//        em.getTransaction().commit();
+//
+//        System.out.println("Nuevo empleado creado:" + newHuesped);
 
-        em.getTransaction().begin();
-        em.persist(newHuesped);
-        em.getTransaction().commit();
 
-        System.out.println("Nuevo empleado creado:" + newHuesped);*/
 
-        /*
+       /*
         System.out.println("-----BUSCAR UNO-----------");
         int employeeId = 1;
         Employee employee = em.find(Employee.class, employeeId);
