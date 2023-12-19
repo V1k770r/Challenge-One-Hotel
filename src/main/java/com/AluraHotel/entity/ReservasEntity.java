@@ -1,4 +1,4 @@
-package com.AluraHotel.model;
+package com.AluraHotel.entity;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;

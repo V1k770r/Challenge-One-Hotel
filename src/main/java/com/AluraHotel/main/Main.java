@@ -1,32 +1,30 @@
 package com.AluraHotel.main;
 
-import com.AluraHotel.model.HuespedEntity;
-import com.AluraHotel.model.ReservasEntity;
+import com.AluraHotel.entity.HuespedEntity;
 import com.AluraHotel.util.UtilEntity;
 
 import javax.persistence.EntityManager;
-import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
 
-        EntityManager em = UtilEntity.getEntityManager();
-        List<HuespedEntity> huespedes = em.createQuery("SELECT e FROM HuespedEntity e", HuespedEntity.class).getResultList();
-        System.out.println("-------Listar TODOS---------");
-        huespedes.forEach(System.out::println);
+//        EntityManager em = UtilEntity.getEntityManager();
+//        List<HuespedEntity> huespedes = em.createQuery("SELECT e FROM HuespedEntity e",
+//             HuespedEntity.class).getResultList();
+//        System.out.println("-------Listar TODOS---------");
+//        huespedes.forEach(System.out::println);
+
 
 //        System.out.println("----CREAR UNO-------");
-
+//
 //        HuespedEntity newHuesped = new HuespedEntity();
-//        newHuesped.setId("001");
+//        newHuesped.setId("456789998");
 //        newHuesped.setNombre("Karla2");
 //        newHuesped.setApellido("Perez2");
 //        newHuesped.setNacionalidad("Uruguaya");
 //        newHuesped.setFechaDeNacimiento(new Date(86, Calendar.FEBRUARY,10));
 //        newHuesped.setTelefono("1111111");
-//
 //
 //        em.getTransaction().begin();
 //        em.persist(newHuesped);

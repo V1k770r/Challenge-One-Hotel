@@ -30,7 +30,8 @@ public class RegistroHuesped extends JFrame {
 	 */
 	public RegistroHuesped() {
 		
-		setIconImage(Toolkit.getDefaultToolkit().getImage(RegistroHuesped.class.getResource("/imagenes/lOGO-50PX.png")));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(
+				RegistroHuesped.class.getResource("/imagenes/lOGO-50PX.png")));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 910, 634);
 		contentPane = new JPanel();

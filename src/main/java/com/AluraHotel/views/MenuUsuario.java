@@ -133,7 +133,37 @@ public class MenuUsuario extends JFrame {
 		lblBusquedaDeReservas.setForeground(Color.WHITE);
 		lblBusquedaDeReservas.setFont(new Font("Roboto", Font.PLAIN, 18));
 		btnBusqueda.add(lblBusquedaDeReservas);
-		
+
+		JPanel btnExit = new JPanel();
+		btnExit.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				btnExit.setBackground(new Color(118, 187, 223));
+			}
+			@Override
+			public void mouseExited(MouseEvent e) {
+				btnExit.setBackground(new Color(12, 138, 199));
+			}
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				Login login = new Login();
+				login.setVisible(true);
+				dispose();
+			}
+		});
+		btnExit.setBounds(0, 540, 257, 56);
+		btnExit.setBackground(new Color(12, 138, 199));
+		panelMenu.add(btnExit);
+		btnExit.setLayout(null);
+
+		labelExit = new JLabel("Salir del Sistema");
+		labelExit.setIcon(new ImageIcon(MenuUsuario.class.getResource("/imagenes/cancelar.png")));
+		labelExit.setForeground(SystemColor.text);
+		labelExit.setBounds(25, 11, 205, 34);
+		labelExit.setFont(new Font("Roboto", Font.PLAIN, 18));
+		labelExit.setHorizontalAlignment(SwingConstants.LEFT);
+		btnExit.add(labelExit);
+
 		JSeparator separator = new JSeparator();
 		separator.setBounds(26, 219, 201, 2);
 		panelMenu.add(separator);
@@ -141,35 +171,35 @@ public class MenuUsuario extends JFrame {
 		header.setBackground(Color.WHITE);
 		header.setBounds(0, 0, 944, 36);
 		contentPane.add(header);
-		
-		JPanel btnexit = new JPanel();
-		btnexit.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				System.exit(0);
-			}
-			@Override
-			public void mouseEntered(MouseEvent e) {
-				btnexit.setBackground(Color.red);
-				labelExit.setForeground(Color.white);
-			}
-			@Override
-			public void mouseExited(MouseEvent e) {
-				 btnexit.setBackground(Color.white);
-			     labelExit.setForeground(Color.black);
-			}
-		});
-		
-		btnexit.setLayout(null);
-		btnexit.setBackground(Color.WHITE);
-		btnexit.setBounds(891, 0, 53, 36);
-		header.add(btnexit);
-		
-		labelExit = new JLabel("X");
-		labelExit.setBounds(0, 0, 53, 36);
-		btnexit.add(labelExit);
-		labelExit.setHorizontalAlignment(SwingConstants.CENTER);
-		labelExit.setFont(new Font("Roboto", Font.PLAIN, 18));
+
+//		JPanel btnexit = new JPanel();
+//		btnexit.addMouseListener(new MouseAdapter() {
+//			@Override
+//			public void mouseClicked(MouseEvent e) {
+//				System.exit(0);
+//			}
+//			@Override
+//			public void mouseEntered(MouseEvent e) {
+//				btnexit.setBackground(Color.red);
+//				labelExit.setForeground(Color.white);
+//			}
+//			@Override
+//			public void mouseExited(MouseEvent e) {
+//				 btnexit.setBackground(Color.white);
+//			     labelExit.setForeground(Color.black);
+//			}
+//		});
+
+//		btnexit.setLayout(null);
+//		btnexit.setBackground(Color.WHITE);
+//		btnexit.setBounds(891, 0, 53, 36);
+//		header.add(btnexit);
+//
+//		labelExit = new JLabel("X");
+//		labelExit.setBounds(0, 0, 53, 36);
+//		btnexit.add(labelExit);
+//		labelExit.setHorizontalAlignment(SwingConstants.CENTER);
+//		labelExit.setFont(new Font("Roboto", Font.PLAIN, 18));
 		
 	    JPanel panelFecha = new JPanel();
 	    panelFecha.setBackground(new Color(118, 187, 223));
@@ -227,7 +257,7 @@ public class MenuUsuario extends JFrame {
 	    lblNewLabel_3_2.setBounds(312, 520, 295, 27);
 	    contentPane.add(lblNewLabel_3_2);
 	}
-	
+
 	private void headerMousePressed(MouseEvent evt) {
         xMouse = evt.getX();
         yMouse = evt.getY();
