@@ -9,11 +9,11 @@ import java.util.List;
 public class Main {
     public static void main(String[] args) {
 
-//        EntityManager em = UtilEntity.getEntityManager();
-//        List<HuespedEntity> huespedes = em.createQuery("SELECT e FROM HuespedEntity e",
-//             HuespedEntity.class).getResultList();
-//        System.out.println("-------Listar TODOS---------");
-//        huespedes.forEach(System.out::println);
+        EntityManager em = UtilEntity.getEntityManager();
+        List<HuespedEntity> huespedes = em.createQuery("SELECT e FROM HuespedEntity e",
+             HuespedEntity.class).getResultList();
+        System.out.println("-------Listar TODOS---------");
+        huespedes.forEach(System.out::println);
 
 
 //        System.out.println("----CREAR UNO-------");

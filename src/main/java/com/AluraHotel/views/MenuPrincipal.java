@@ -34,7 +34,8 @@ public class MenuPrincipal extends JFrame {
 	 * Create the frame.
 	 */
 	public MenuPrincipal() {
-		setIconImage(Toolkit.getDefaultToolkit().getImage(MenuPrincipal.class.getResource("/imagenes/aH-40px.png")));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(
+				MenuPrincipal.class.getResource("/imagenes/aH-40px.png")));
 		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		setBounds(100, 100, 910, 537);
 		contentPane = new JPanel();

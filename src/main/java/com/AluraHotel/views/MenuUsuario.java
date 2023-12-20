@@ -161,7 +161,7 @@ public class MenuUsuario extends JFrame {
 		labelExit.setForeground(SystemColor.text);
 		labelExit.setBounds(25, 11, 205, 34);
 		labelExit.setFont(new Font("Roboto", Font.PLAIN, 18));
-		labelExit.setHorizontalAlignment(SwingConstants.LEFT);
+		labelExit.setHorizontalAlignment(SwingConstants.CENTER);
 		btnExit.add(labelExit);
 
 		JSeparator separator = new JSeparator();
@@ -172,35 +172,6 @@ public class MenuUsuario extends JFrame {
 		header.setBounds(0, 0, 944, 36);
 		contentPane.add(header);
 
-//		JPanel btnexit = new JPanel();
-//		btnexit.addMouseListener(new MouseAdapter() {
-//			@Override
-//			public void mouseClicked(MouseEvent e) {
-//				System.exit(0);
-//			}
-//			@Override
-//			public void mouseEntered(MouseEvent e) {
-//				btnexit.setBackground(Color.red);
-//				labelExit.setForeground(Color.white);
-//			}
-//			@Override
-//			public void mouseExited(MouseEvent e) {
-//				 btnexit.setBackground(Color.white);
-//			     labelExit.setForeground(Color.black);
-//			}
-//		});
-
-//		btnexit.setLayout(null);
-//		btnexit.setBackground(Color.WHITE);
-//		btnexit.setBounds(891, 0, 53, 36);
-//		header.add(btnexit);
-//
-//		labelExit = new JLabel("X");
-//		labelExit.setBounds(0, 0, 53, 36);
-//		btnexit.add(labelExit);
-//		labelExit.setHorizontalAlignment(SwingConstants.CENTER);
-//		labelExit.setFont(new Font("Roboto", Font.PLAIN, 18));
-		
 	    JPanel panelFecha = new JPanel();
 	    panelFecha.setBackground(new Color(118, 187, 223));
 	    panelFecha.setBounds(256, 84, 688, 121);
@@ -214,7 +185,7 @@ public class MenuUsuario extends JFrame {
 	    lblNewLabel_1.setFont(new Font("Roboto", Font.PLAIN, 24));
 	    
 	    JLabel labelFecha = new JLabel("New label");
-	    labelFecha.setBounds(35, 64, 294, 36);
+	    labelFecha.setBounds(215, 64, 294, 36);
 	    panelFecha.add(labelFecha);
 	    labelFecha.setForeground(Color.WHITE);
 	    labelFecha.setFont(new Font("Roboto", Font.PLAIN, 33));
