@@ -225,7 +225,7 @@ public class ReservasView extends JFrame {
 		labelAtras.setFont(new Font("Roboto", Font.PLAIN, 23));
 
 
-		JLabel lblSiguiente = new JLabel("SIGUIENTE");
+		JLabel lblSiguiente = new JLabel("CONTINUAR");
 		lblSiguiente.setHorizontalAlignment(SwingConstants.CENTER);
 		lblSiguiente.setForeground(Color.WHITE);
 		lblSiguiente.setFont(new Font("Roboto", Font.PLAIN, 18));
@@ -252,21 +252,19 @@ public class ReservasView extends JFrame {
 		txtFechaSalida.getCalendarButton().setBounds(267, 1, 21, 31);
 		txtFechaSalida.setBackground(Color.WHITE);
 		txtFechaSalida.setFont(new Font("Roboto", Font.PLAIN, 18));
-
-		txtFechaSalida.addPropertyChangeListener(new PropertyChangeListener() {
-			public void propertyChange(PropertyChangeEvent evt) {
+		txtFechaSalida.addPropertyChangeListener( new PropertyChangeListener() {
+			public void propertyChange( PropertyChangeEvent evt) {
 				//Activa el evento, después del usuario seleccionar las fechas se debe calcular el valor de la reserva
 
-				evt.getOldValue();
-
+					System.out.println(evt.getPropertyName());
+				System.out.println("I am flying");
 			}
 		});
+
 		txtFechaSalida.setDateFormatString("yyyy-MM-dd");
 		txtFechaSalida.getCalendarButton().setBackground(SystemColor.textHighlight);
 		txtFechaSalida.setBorder(new LineBorder(new Color(255, 255, 255), 0));
 		panel.add(txtFechaSalida);
-
-
 
 		txtValor = new JTextField();
 		txtValor.setBackground(SystemColor.text);
