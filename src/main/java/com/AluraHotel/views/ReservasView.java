@@ -11,6 +11,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
+import java.util.Calendar;
 
 
 @SuppressWarnings("serial")
@@ -235,7 +236,8 @@ public class ReservasView extends JFrame {
 		//Campos que guardaremos en la base de datos
 		txtFechaEntrada = new JDateChooser();
 		txtFechaEntrada.getCalendarButton().setBackground(SystemColor.textHighlight);
-		txtFechaEntrada.getCalendarButton().setIcon(new ImageIcon(ReservasView.class.getResource("/imagenes/icon-reservas.png")));
+		txtFechaEntrada.getCalendarButton().setIcon(new ImageIcon(ReservasView.class.getResource
+				("/imagenes/icon-reservas.png")));
 		txtFechaEntrada.getCalendarButton().setFont(new Font("Roboto", Font.PLAIN, 12));
 		txtFechaEntrada.setBounds(68, 161, 289, 35);
 		txtFechaEntrada.getCalendarButton().setBounds(268, 0, 21, 33);
@@ -246,7 +248,8 @@ public class ReservasView extends JFrame {
 		panel.add(txtFechaEntrada);
 
 		txtFechaSalida = new JDateChooser();
-		txtFechaSalida.getCalendarButton().setIcon(new ImageIcon(ReservasView.class.getResource("/imagenes/icon-reservas.png")));
+		txtFechaSalida.getCalendarButton().setIcon(new ImageIcon(ReservasView.class.getResource
+				("/imagenes/icon-reservas.png")));
 		txtFechaSalida.getCalendarButton().setFont(new Font("Roboto", Font.PLAIN, 11));
 		txtFechaSalida.setBounds(68, 246, 289, 35);
 		txtFechaSalida.getCalendarButton().setBounds(267, 1, 21, 31);
@@ -261,10 +264,22 @@ public class ReservasView extends JFrame {
 			}
 		});
 
-		txtFechaSalida.setDateFormatString("yyyy-MM-dd");
-		txtFechaSalida.getCalendarButton().setBackground(SystemColor.textHighlight);
-		txtFechaSalida.setBorder(new LineBorder(new Color(255, 255, 255), 0));
+		try {
+			int ano = txtFechaSalida.getCalendar().get(Calendar.YEAR);
+			int mes = txtFechaSalida.getCalendar().get(Calendar.MONTH);
+			int dia = txtFechaSalida.getCalendar().get(Calendar.DAY_OF_MONTH);
+			String fecha = (ano + "-" + mes + "-" + dia);
+			System.out.println(fecha);
+
+			System.out.println();
+
+		} catch (NullPointerException e){
+			System.out.println(e);
+		}
+
 		panel.add(txtFechaSalida);
+
+
 
 		txtValor = new JTextField();
 		txtValor.setBackground(SystemColor.text);
