@@ -4,33 +4,34 @@ import com.AluraHotel.entity.HuespedEntity;
 import com.AluraHotel.util.UtilEntity;
 
 import javax.persistence.EntityManager;
-import java.util.List;
+import java.util.Calendar;
+import java.util.Date;
 
 public class Main {
     public static void main(String[] args) {
 
         EntityManager em = UtilEntity.getEntityManager();
-        List<HuespedEntity> huespedes = em.createQuery("SELECT e FROM HuespedEntity e",
-             HuespedEntity.class).getResultList();
-        System.out.println("-------Listar TODOS---------");
-        huespedes.forEach(System.out::println);
+//        List<HuespedEntity> huespedes = em.createQuery("SELECT e FROM HuespedEntity e",
+//             HuespedEntity.class).getResultList();
+//        System.out.println("-------Listar TODOS---------");
+//        huespedes.forEach(System.out::println);
 
 
-//        System.out.println("----CREAR UNO-------");
-//
-//        HuespedEntity newHuesped = new HuespedEntity();
-//        newHuesped.setId("456789998");
-//        newHuesped.setNombre("Karla2");
-//        newHuesped.setApellido("Perez2");
-//        newHuesped.setNacionalidad("Uruguaya");
-//        newHuesped.setFechaDeNacimiento(new Date(86, Calendar.FEBRUARY,10));
-//        newHuesped.setTelefono("1111111");
-//
-//        em.getTransaction().begin();
-//        em.persist(newHuesped);
-//        em.getTransaction().commit();
-//
-//        System.out.println("Nuevo empleado creado:" + newHuesped);
+        System.out.println("----CREAR UNO-------");
+
+        HuespedEntity newHuesped = new HuespedEntity();
+        newHuesped.setId("1111111111");
+        newHuesped.setNombre("Karlita");
+        newHuesped.setApellido("Perezoza");
+        newHuesped.setNacionalidad("Peruana");
+        newHuesped.setFechaDeNacimiento(new Date(99, Calendar.APRIL,5));
+        newHuesped.setTelefono("1111111");
+
+        em.getTransaction().begin();
+        em.persist(newHuesped);
+        em.getTransaction().commit();
+
+        System.out.println("Nuevo empleado creado:" + newHuesped);
 
 
 
