@@ -5,6 +5,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import javax.persistence.*;
 import java.sql.Date;
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "reservas")
@@ -21,31 +22,31 @@ public class ReservasEntity {
     @Column(name = "id_huesped", nullable = false, length = 15)
     private String id;
 
-    @Column(nullable = false, columnDefinition = "DATE")
-    private Date fechaE;
+    @Column(name = "fecha_de_entrada", nullable = false, columnDefinition = "DATE")
+    private LocalDate fechaE;
 
-    @Column(nullable = false, columnDefinition = "DATE")
-    private Date fechaS;
+    @Column(name = "fecha_de_salida", nullable = false, columnDefinition = "DATE")
+    private LocalDate fechaS;
 
     @Column(nullable = false, columnDefinition = "Decimal(5,2)")
     private String valor;
 
-    @Column(nullable = false, length = 150)
+    @Column(name = "forma_de_pago", nullable = false, length = 150)
     private String formaDePago;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "id_huesped", referencedColumnName = "id_huesped", insertable = false, updatable = false)
     private HuespedEntity huesped;
 
 
-    public ReservasEntity(Date fechaE, Date fechaS, String valor, String formaDePago) {
+    public ReservasEntity(LocalDate fechaE, LocalDate fechaS, String valor, String formaDePago) {
         this.fechaE = fechaE;
         this.fechaS = fechaS;
         this.valor = valor;
         this.formaDePago = formaDePago;
     }
 
-    public ReservasEntity(Integer idReserva, Date fechaE, Date fechaS, String valor, String formaDePago) {
+    public ReservasEntity(Integer idReserva, LocalDate fechaE, LocalDate fechaS, String valor, String formaDePago) {
         this.idReserva = idReserva;
         this.fechaE = fechaE;
         this.fechaS = fechaS;

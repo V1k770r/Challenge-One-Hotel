@@ -10,7 +10,6 @@ public class ReservasDao {
     EntityManager em;
 
     public ReservasDao(EntityManager em) {
-        UtilEntity.getEntityManager();
         this.em = em;
     }
 
@@ -19,7 +18,7 @@ public class ReservasDao {
         this.em.persist(reservas);
         em.getTransaction().commit();
 
-    }
+}
 
 
 

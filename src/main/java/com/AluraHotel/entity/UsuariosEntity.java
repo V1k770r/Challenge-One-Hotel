@@ -7,15 +7,15 @@ import lombok.Setter;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
-@Entity
-@Table(name="usuarios")
-@Getter
-@Setter
-@NoArgsConstructor
+//@Entity
+//@Table(name="usuarios")
+//@Getter
+//@Setter
+//@NoArgsConstructor
 public class UsuariosEntity {
 
-    private String nombre;
-    private String contraseña;
+//    private String nombre;
+//    private String contraseña;
 
 
 //    public static boolean validarUsuario(String nombre, String contraseña){

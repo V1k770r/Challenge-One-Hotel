@@ -13,6 +13,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
+import java.sql.Date;
 import java.util.Calendar;
 
 
@@ -315,7 +316,7 @@ public class ReservasView extends JFrame {
 		try{
 			String fechaE = ((JTextField)txtFechaEntrada.getDateEditor().getUiComponent()).getText();
 			String fechaS = ((JTextField)txtFechaEntrada.getDateEditor().getUiComponent()).getText();
-			ReservasEntity reservas = new ReservasEntity(java.sql.Date.valueOf(fechaE), java.sql.Date.valueOf(fechaS), txtValor.getText(), txtFormaPago.getSelectedItem().toString() );
+			ReservasEntity reservas = new ReservasEntity(Date.valueOf(fechaE).toLocalDate(), Date.valueOf(fechaS).toLocalDate(), txtValor.getText(), txtFormaPago.getSelectedItem().toString() );
 			reservasControlador.guardar(reservas);
 		}catch (Exception e){
 				JOptionPane.showMessageDialog(contentPane,"Error" + e.getMessage(), "Error",JOptionPane.ERROR_MESSAGE);

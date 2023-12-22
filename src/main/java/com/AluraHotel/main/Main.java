@@ -1,9 +1,11 @@
 package com.AluraHotel.main;
 
 import com.AluraHotel.entity.HuespedEntity;
+import com.AluraHotel.entity.ReservasEntity;
 import com.AluraHotel.util.UtilEntity;
 
 import javax.persistence.EntityManager;
+import java.time.LocalDate;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -17,24 +19,39 @@ public class Main {
 //        huespedes.forEach(System.out::println);
 
 
-        System.out.println("----CREAR UNO-------");
+//        System.out.println("----CREAR UNO-------");
+//
+//        HuespedEntity newHuesped = new HuespedEntity();
+//        newHuesped.setId("1111111111");
+//        newHuesped.setNombre("Karlita");
+//        newHuesped.setApellido("Perezoza");
+//        newHuesped.setNacionalidad("Peruana");
+//        newHuesped.setFechaDeNacimiento(new Date(99, Calendar.APRIL,5));
+//        newHuesped.setTelefono("1111111");
+//
+//        em.getTransaction().begin();
+//        em.persist(newHuesped);
+//        em.getTransaction().commit();
+//
+//        System.out.println("Nuevo empleado creado:" + newHuesped);
 
-        HuespedEntity newHuesped = new HuespedEntity();
-        newHuesped.setId("1111111111");
-        newHuesped.setNombre("Karlita");
-        newHuesped.setApellido("Perezoza");
-        newHuesped.setNacionalidad("Peruana");
-        newHuesped.setFechaDeNacimiento(new Date(99, Calendar.APRIL,5));
-        newHuesped.setTelefono("1111111");
+/*
+
+        System.out.println("crear una reserva");
+        ReservasEntity reservas = new ReservasEntity();
+        reservas.setIdReserva(110410415);
+        reservas.setId("456897");
+        reservas.setFechaE(LocalDate.of(2000, 5, 2));
+        reservas.setFechaS(LocalDate.of(2000, 6, 1));
+        reservas.setValor("500");
+        reservas.setFormaDePago("Pago en efectivo");
 
         em.getTransaction().begin();
-        em.persist(newHuesped);
+        em.persist(reservas);
         em.getTransaction().commit();
 
-        System.out.println("Nuevo empleado creado:" + newHuesped);
-
-
-
+        System.out.println("Nueva reserva creada:" + reservas);
+*/
        /*
         System.out.println("-----BUSCAR UNO-----------");
         int employeeId = 1;
