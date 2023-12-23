@@ -5,7 +5,7 @@ import com.AluraHotel.entity.ReservasEntity;
 import com.AluraHotel.util.UtilEntity;
 
 import javax.persistence.EntityManager;
-import java.io.Serializable;
+
 
 
 public class ReservasControlador{

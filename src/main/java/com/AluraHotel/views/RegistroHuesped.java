@@ -14,6 +14,8 @@ import java.awt.event.MouseMotionAdapter;
 import java.sql.Date;
 import java.text.Format;
 
+import static com.AluraHotel.controlador.HuespedControlador.*;
+
 @SuppressWarnings("serial")
 public class RegistroHuesped extends JFrame {
 
@@ -26,7 +28,7 @@ public class RegistroHuesped extends JFrame {
 	private JComboBox<Format> txtNacionalidad;
 	private JLabel labelExit;
 	private JLabel labelAtras;
-	HuespedEntity huesped = new HuespedEntity();
+	HuespedControlador huespedControlador = new HuespedControlador();
 	int xMouse, yMouse;
 
 
@@ -243,8 +245,10 @@ public class RegistroHuesped extends JFrame {
 		btnguardar.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				guardarHuesped();
 			}
 		});
+
 		btnguardar.setLayout(null);
 		btnguardar.setBackground(new Color(12, 138, 199));
 		contentPane.add(btnguardar);
@@ -305,26 +309,32 @@ public class RegistroHuesped extends JFrame {
 		labelExit.setFont(new Font("Roboto", Font.PLAIN, 18));
 	}
 
-	public void guardarHuesped(){
-		try{
-			String fechaN = ((JTextField)txtFechaN.getDateEditor().getUiComponent()).getText();
-			System.out.println(fechaN);
-		//	HuespedEntity huesped = new ReservasEntity(txtNreserva.getText(),txtNombre.getText(), txtApellido.getText(),Date.valueOf(fechaN).toLocalDate(),txtNacionalidad.getToolTipText(),txtTelefono.getText().toString());
-			System.out.println(huesped.toString());
-			HuespedControlador.guardar(huesped);
-		}catch (Exception e){
-			JOptionPane.showMessageDialog(contentPane,"Error" + e.getMessage(), "Error",JOptionPane.ERROR_MESSAGE);
+	public void guardarHuesped() {
+
+		if (txtFechaN.getDate() != null && !txtNombre.equals("") && !txtApellido.equals("") && !txtTelefono.equals("")) {
+			String fechaN = ((JTextField) txtFechaN.getDateEditor().getUiComponent()).getText();
+
+			HuespedEntity huespedes = new HuespedEntity(txtNombre.getText(), txtApellido.getText(),
+					Date.valueOf(fechaN).toLocalDate(), txtNacionalidad.getSelectedItem().toString(), txtTelefono.getText(), Integer.parseInt(txtNreserva.getText()));
+			System.out.println(huespedes.toString());
+			this.huespedControlador.guardar(huespedes);
+
+		} else {
+			JOptionPane.showMessageDialog(this, "Rellenar todos los campos");
 		}
-	}
 
+//		try{
+//			String fechaN = ((JTextField)txtFechaN.getDateEditor().getUiComponent()).getText();
+//			System.out.println(fechaN);
+//			HuespedEntity huesped = new HuespedEntity(txtNreserva.getText(), txtNombre.getText(), txtApellido.getText(),
+//					Date.valueOf(fechaN).toLocalDate(),txtNacionalidad.getSelectedItem(),txtTelefono.getText());
+//			System.out.println(huesped.toString());
+//			HuespedControlador.guardar(huesped);
+//		}catch (Exception e){
+//			JOptionPane.showMessageDialog(contentPane,"Error" + e.getMessage(), "Error",JOptionPane.ERROR_MESSAGE);
+//		}
+}
 
-
-
-
-
-
-
-	
 	//Código que permite mover la ventana por la pantalla según la posición de "x" y "y"	
 	 private void headerMousePressed(MouseEvent evt) {
 	        xMouse = evt.getX();

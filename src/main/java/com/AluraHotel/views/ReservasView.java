@@ -321,7 +321,8 @@ public class ReservasView extends JFrame {
 			System.out.println(fechaE);
 			String fechaS = ((JTextField)txtFechaSalida.getDateEditor().getUiComponent()).getText();
 			System.out.println(fechaS);
-			ReservasEntity reservas = new ReservasEntity(Date.valueOf(fechaE).toLocalDate(), Date.valueOf(fechaS).toLocalDate(), txtValor.getText(), txtFormaPago.getSelectedItem().toString() );
+			ReservasEntity reservas = new ReservasEntity(Date.valueOf(fechaE).toLocalDate(), Date.valueOf(fechaS).toLocalDate(),
+					txtValor.getText(), txtFormaPago.getSelectedItem().toString() );
 			System.out.println(reservas.toString());
 			reservasControlador.guardar(reservas);
 		}catch (Exception e){

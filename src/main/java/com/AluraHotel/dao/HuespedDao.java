@@ -6,21 +6,18 @@ import com.AluraHotel.util.UtilEntity;
 import javax.persistence.EntityManager;
 
 public class HuespedDao {
+    private EntityManager em = UtilEntity.getEntityManager();
 
-    public void insertarHuesped(HuespedEntity huesped){
-        EntityManager em = UtilEntity.getEntityManager();
-        try {
-            em.getTransaction().begin();
-            em.persist(huesped);
-            em.getTransaction().commit();
-            System.out.println("Guardado correctamente");
-        }catch (Exception e){
-            System.out.println("Error al guardar: " + e.getMessage());
-        }finally {
-            if(em != null){
-                em.close();
-            }
-        }
+    public HuespedDao(){
+    }
+    public HuespedDao(EntityManager em) {
+        this.em = em;
+    }
+
+    public void guardar(HuespedEntity huesped){
+        this.em.getTransaction().begin();
+        this.em.merge(huesped);
+        this.em.getTransaction().commit();
     }
 
 //    public static void main(String[] args) {

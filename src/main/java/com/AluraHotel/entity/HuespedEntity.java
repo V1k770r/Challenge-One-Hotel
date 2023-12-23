@@ -3,7 +3,10 @@ package com.AluraHotel.entity;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.GenericGenerator;
+
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.util.Date;
 
 @Entity
@@ -14,11 +17,13 @@ import java.util.Date;
 public class HuespedEntity {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "native")
+    @GenericGenerator(name = "native", strategy = "native")
     @Column(name = "id_huesped", nullable = false, length = 15)
-    private String id;
+    private int id;
 
     @Column(name = "id_reserva", nullable = false)
-    private String id_reserva;
+    private Integer id_reserva;
 
     @Column(nullable = false, length = 30, unique = true)
     private String nombre;
@@ -27,7 +32,7 @@ public class HuespedEntity {
     private String apellido;
 
     @Column(name="fecha_de_nacimiento", nullable = false, columnDefinition = "DATE")
-    private Date fechaDeNacimiento;
+    private LocalDate fechaDeNacimiento;
 
     @Column(nullable = false, length = 40)
     private String nacionalidad;
@@ -40,17 +45,16 @@ public class HuespedEntity {
     private ReservasEntity reservasEntity;
 
 
-    public HuespedEntity(String id, String nombre, String apellido, Date fechaDeNacimiento, String nacionalidad, String telefono, ReservasEntity reservasEntity) {
-        this.id = id;
+    public HuespedEntity(String nombre, String apellido, LocalDate fechaDeNacimiento, String nacionalidad, String telefono, Integer id_reserva) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.fechaDeNacimiento = fechaDeNacimiento;
         this.nacionalidad = nacionalidad;
         this.telefono = telefono;
-        this.reservasEntity = reservasEntity;
+        this.id_reserva = id_reserva;
     }
 
-    public HuespedEntity(String id, String id_reserva, String nombre, String apellido, Date fechaDeNacimiento, String nacionalidad, String telefono, ReservasEntity reservasEntity) {
+    public HuespedEntity(int id, Integer id_reserva, String nombre, String apellido, LocalDate fechaDeNacimiento, String nacionalidad, String telefono, ReservasEntity reservasEntity) {
         this.id = id;
         this.id_reserva = id_reserva;
         this.nombre = nombre;
@@ -65,6 +69,7 @@ public class HuespedEntity {
     public String toString() {
         return "HuespedEntity{" +
                 "id='" + id + '\'' +
+                ", id_reserva=" + id_reserva +
                 ", nombre='" + nombre + '\'' +
                 ", apellido='" + apellido + '\'' +
                 ", fechaDeNacimiento=" + fechaDeNacimiento +
