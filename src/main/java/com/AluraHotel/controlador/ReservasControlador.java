@@ -8,20 +8,9 @@ import javax.persistence.EntityManager;
 import java.io.Serializable;
 
 
-public class ReservasControlador implements Serializable {
+public class ReservasControlador{
 
-    private ReservasDao reservasDao;
-    private EntityManager em;
-
-
-    public ReservasControlador(ReservasDao reservasDao, EntityManager em) {
-        this.reservasDao = reservasDao;
-        this.em = em;
-    }
-
-    public ReservasControlador (){
-        em = UtilEntity.getEntityManager();
-    }
+    private ReservasDao reservasDao = new ReservasDao();
 
 
     public void guardar (ReservasEntity reservasEntity){

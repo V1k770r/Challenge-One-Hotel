@@ -53,4 +53,14 @@ public class ReservasEntity {
         this.valor = valor;
         this.formaDePago = formaDePago;
     }
+
+    @Override
+    public String toString() {
+        return "ReservasEntity{" +
+                "fechaE=" + fechaE +
+                ", fechaS=" + fechaS +
+                ", valor='" + valor + '\'' +
+                ", formaDePago='" + formaDePago + '\'' +
+                '}';
+    }
 }

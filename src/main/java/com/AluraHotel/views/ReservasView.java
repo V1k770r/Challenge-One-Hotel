@@ -28,7 +28,7 @@ public class ReservasView extends JFrame {
 	int xMouse, yMouse;
 	private JLabel labelExit;
 	private JLabel labelAtras;
-	public ReservasControlador reservasControlador;
+	private ReservasControlador reservasControlador = new ReservasControlador();
 
 
 	/**
@@ -322,6 +322,7 @@ public class ReservasView extends JFrame {
 			String fechaS = ((JTextField)txtFechaSalida.getDateEditor().getUiComponent()).getText();
 			System.out.println(fechaS);
 			ReservasEntity reservas = new ReservasEntity(Date.valueOf(fechaE).toLocalDate(), Date.valueOf(fechaS).toLocalDate(), txtValor.getText(), txtFormaPago.getSelectedItem().toString() );
+			System.out.println(reservas.toString());
 			reservasControlador.guardar(reservas);
 		}catch (Exception e){
 				JOptionPane.showMessageDialog(contentPane,"Error" + e.getMessage(), "Error",JOptionPane.ERROR_MESSAGE);

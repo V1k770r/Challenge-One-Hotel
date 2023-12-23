@@ -7,11 +7,15 @@ import javax.persistence.EntityManager;
 
 public class ReservasDao {
 
-    private EntityManager em;
+    private EntityManager em = UtilEntity.getEntityManager();
+
+    public ReservasDao(){
+            }
 
     public ReservasDao(EntityManager em) {
         this.em = em;
     }
+
 
     public void guardar(ReservasEntity reservasEntity){
 
