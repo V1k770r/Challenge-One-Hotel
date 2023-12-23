@@ -309,7 +309,7 @@ public class RegistroHuesped extends JFrame {
 		try{
 			String fechaN = ((JTextField)txtFechaN.getDateEditor().getUiComponent()).getText();
 			System.out.println(fechaN);
-			HuespedEntity huesped = new ReservasEntity(txtNreserva.getText(),txtNombre.getText(), txtApellido.getText(),Date.valueOf(fechaN).toLocalDate(),txtNacionalidad.getToolTipText(),txtTelefono.getText().toString());
+		//	HuespedEntity huesped = new ReservasEntity(txtNreserva.getText(),txtNombre.getText(), txtApellido.getText(),Date.valueOf(fechaN).toLocalDate(),txtNacionalidad.getToolTipText(),txtTelefono.getText().toString());
 			System.out.println(huesped.toString());
 			HuespedControlador.guardar(huesped);
 		}catch (Exception e){
