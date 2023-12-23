@@ -1,5 +1,8 @@
 package com.AluraHotel.views;
 
+import com.AluraHotel.controlador.HuespedControlador;
+import com.AluraHotel.entity.HuespedEntity;
+import com.AluraHotel.entity.ReservasEntity;
 import com.toedter.calendar.JDateChooser;
 
 import javax.swing.*;
@@ -8,6 +11,7 @@ import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
+import java.sql.Date;
 import java.text.Format;
 
 @SuppressWarnings("serial")
@@ -22,6 +26,7 @@ public class RegistroHuesped extends JFrame {
 	private JComboBox<Format> txtNacionalidad;
 	private JLabel labelExit;
 	private JLabel labelAtras;
+	HuespedEntity huesped = new HuespedEntity();
 	int xMouse, yMouse;
 
 
@@ -299,7 +304,26 @@ public class RegistroHuesped extends JFrame {
 		labelExit.setForeground(SystemColor.black);
 		labelExit.setFont(new Font("Roboto", Font.PLAIN, 18));
 	}
-	
+
+	public void guardarHuesped(){
+		try{
+			String fechaN = ((JTextField)txtFechaN.getDateEditor().getUiComponent()).getText();
+			System.out.println(fechaN);
+			HuespedEntity huesped = new ReservasEntity(txtNreserva.getText(),txtNombre.getText(), txtApellido.getText(),Date.valueOf(fechaN).toLocalDate(),txtNacionalidad.getToolTipText(),txtTelefono.getText().toString());
+			System.out.println(huesped.toString());
+			HuespedControlador.guardar(huesped);
+		}catch (Exception e){
+			JOptionPane.showMessageDialog(contentPane,"Error" + e.getMessage(), "Error",JOptionPane.ERROR_MESSAGE);
+		}
+	}
+
+
+
+
+
+
+
+
 	
 	//Código que permite mover la ventana por la pantalla según la posición de "x" y "y"	
 	 private void headerMousePressed(MouseEvent evt) {

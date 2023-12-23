@@ -47,6 +47,9 @@ public class ReservasEntity {
         this.formaDePago = formaDePago;
     }
 
+    public ReservasEntity(String text, String text1, String text2, LocalDate localDate, String toolTipText, String string) {
+    }
+
     @Override
     public String toString() {
         return "ReservasEntity{" +

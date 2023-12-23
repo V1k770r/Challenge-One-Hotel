@@ -349,8 +349,6 @@ public class ReservasView extends JFrame {
 		}
 	}
 
-
-
 	//Código que permite mover la ventana por la pantalla según la posición de "x" y "y"	
 	 private void headerMousePressed(MouseEvent evt) {
 	        xMouse = evt.getX();

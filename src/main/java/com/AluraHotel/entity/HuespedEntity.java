@@ -40,6 +40,27 @@ public class HuespedEntity {
     private ReservasEntity reservasEntity;
 
 
+    public HuespedEntity(String id, String nombre, String apellido, Date fechaDeNacimiento, String nacionalidad, String telefono, ReservasEntity reservasEntity) {
+        this.id = id;
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.fechaDeNacimiento = fechaDeNacimiento;
+        this.nacionalidad = nacionalidad;
+        this.telefono = telefono;
+        this.reservasEntity = reservasEntity;
+    }
+
+    public HuespedEntity(String id, String id_reserva, String nombre, String apellido, Date fechaDeNacimiento, String nacionalidad, String telefono, ReservasEntity reservasEntity) {
+        this.id = id;
+        this.id_reserva = id_reserva;
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.fechaDeNacimiento = fechaDeNacimiento;
+        this.nacionalidad = nacionalidad;
+        this.telefono = telefono;
+        this.reservasEntity = reservasEntity;
+    }
+
     @Override
     public String toString() {
         return "HuespedEntity{" +
