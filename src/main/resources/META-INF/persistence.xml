@@ -5,6 +5,7 @@
 
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
         <class>com.AluraHotel.entity.HuespedEntity</class>
+        <class>com.AluraHotel.entity.ReservasEntity</class>
 
 
         <properties>

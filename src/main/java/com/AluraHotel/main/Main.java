@@ -22,12 +22,12 @@ public class Main {
 //        System.out.println("----CREAR UNO-------");
 //
 //        HuespedEntity newHuesped = new HuespedEntity();
-//        newHuesped.setId("1111111111");
-//        newHuesped.setNombre("Karlita");
-//        newHuesped.setApellido("Perezoza");
-//        newHuesped.setNacionalidad("Peruana");
-//        newHuesped.setFechaDeNacimiento(new Date(99, Calendar.APRIL,5));
-//        newHuesped.setTelefono("1111111");
+//        newHuesped.setId("2222222222");
+//        newHuesped.setNombre("Jimena");
+//        newHuesped.setApellido("Correa");
+//        newHuesped.setNacionalidad("Mexicana");
+//        newHuesped.setFechaDeNacimiento(new Date(89, Calendar.APRIL,10));
+//        newHuesped.setTelefono("45789623");
 //
 //        em.getTransaction().begin();
 //        em.persist(newHuesped);
@@ -35,11 +35,11 @@ public class Main {
 //
 //        System.out.println("Nuevo empleado creado:" + newHuesped);
 
-/*
+
 
         System.out.println("crear una reserva");
         ReservasEntity reservas = new ReservasEntity();
-        reservas.setIdReserva(110410415);
+        reservas.setIdReserva(1);
         reservas.setId("456897");
         reservas.setFechaE(LocalDate.of(2000, 5, 2));
         reservas.setFechaS(LocalDate.of(2000, 6, 1));
@@ -51,7 +51,7 @@ public class Main {
         em.getTransaction().commit();
 
         System.out.println("Nueva reserva creada:" + reservas);
-*/
+
        /*
         System.out.println("-----BUSCAR UNO-----------");
         int employeeId = 1;
