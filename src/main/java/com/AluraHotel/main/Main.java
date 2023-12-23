@@ -11,8 +11,8 @@ import java.util.Date;
 
 public class Main {
     public static void main(String[] args) {
-
-        EntityManager em = UtilEntity.getEntityManager();
+//
+//        EntityManager em = UtilEntity.getEntityManager();
 //        List<HuespedEntity> huespedes = em.createQuery("SELECT e FROM HuespedEntity e",
 //             HuespedEntity.class).getResultList();
 //        System.out.println("-------Listar TODOS---------");
@@ -30,27 +30,26 @@ public class Main {
 //        newHuesped.setTelefono("45789623");
 //
 //        em.getTransaction().begin();
-//        em.persist(newHuesped);
+//        em.merge(newHuesped);
 //        em.getTransaction().commit();
 //
 //        System.out.println("Nuevo empleado creado:" + newHuesped);
 
 
 
-        System.out.println("crear una reserva");
-        ReservasEntity reservas = new ReservasEntity();
-        reservas.setIdReserva(1);
-        reservas.setId("456897");
-        reservas.setFechaE(LocalDate.of(2000, 5, 2));
-        reservas.setFechaS(LocalDate.of(2000, 6, 1));
-        reservas.setValor("500");
-        reservas.setFormaDePago("Pago en efectivo");
-
-        em.getTransaction().begin();
-        em.persist(reservas);
-        em.getTransaction().commit();
-
-        System.out.println("Nueva reserva creada:" + reservas);
+//        System.out.println("crear una reserva");
+//        ReservasEntity reservas = new ReservasEntity();
+//
+//        reservas.setFechaE(LocalDate.of(2000, 6, 2));
+//        reservas.setFechaS(LocalDate.of(2000, 5, 5));
+//        reservas.setValor("700");
+//        reservas.setFormaDePago("Pago en efectivo");
+//
+//        em.getTransaction().begin();
+//        em.merge(reservas); // al haber varias tablas usar merge en vez de persist
+//        em.getTransaction().commit();
+//
+//        System.out.println("Nueva reserva creada:" + reservas);
 
        /*
         System.out.println("-----BUSCAR UNO-----------");

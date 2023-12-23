@@ -11,10 +11,10 @@ import java.io.Serializable;
 public class ReservasControlador{
 
     private ReservasDao reservasDao = new ReservasDao();
+    private EntityManager em = UtilEntity.getEntityManager();
 
-
-    public void guardar (ReservasEntity reservasEntity){
-        this.reservasDao.guardar(reservasEntity);
+    public void guardar (ReservasEntity reservas){
+        this.reservasDao.guardar(reservas);
     }
 
 

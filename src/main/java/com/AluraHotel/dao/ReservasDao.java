@@ -10,17 +10,16 @@ public class ReservasDao {
     private EntityManager em = UtilEntity.getEntityManager();
 
     public ReservasDao(){
-            }
+        }
 
     public ReservasDao(EntityManager em) {
         this.em = em;
     }
 
-
-    public void guardar(ReservasEntity reservasEntity){
-
-        this.em.persist(reservasEntity);
-
+    public void guardar(ReservasEntity reservas){
+        this.em.getTransaction().begin();
+        this.em.merge(reservas);
+        this.em.getTransaction().commit();
 }
 
 

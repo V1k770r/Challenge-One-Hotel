@@ -17,6 +17,9 @@ public class HuespedEntity {
     @Column(name = "id_huesped", nullable = false, length = 15)
     private String id;
 
+    @Column(name = "id_reserva", nullable = false)
+    private String id_reserva;
+
     @Column(nullable = false, length = 30, unique = true)
     private String nombre;
 
@@ -29,8 +32,13 @@ public class HuespedEntity {
     @Column(nullable = false, length = 40)
     private String nacionalidad;
 
-    @Column(name="teléfono", nullable = false, length = 15)
+    @Column(name="telefono", nullable = false, length = 15)
     private String telefono;
+
+    @OneToOne
+    @JoinColumn(name = "id_reserva", referencedColumnName = "id_reserva", insertable = false, updatable = false)
+    private ReservasEntity reservasEntity;
+
 
     @Override
     public String toString() {

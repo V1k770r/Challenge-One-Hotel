@@ -19,9 +19,6 @@ public class ReservasEntity {
     @Column(name = "id_reserva", nullable = false)
     private Integer idReserva;
 
-    @Column(name = "id_huesped", nullable = false, length = 15)
-    private String id;
-
     @Column(name = "fecha_de_entrada", nullable = false, columnDefinition = "DATE")
     private LocalDate fechaE;
 
@@ -33,10 +30,6 @@ public class ReservasEntity {
 
     @Column(name = "forma_de_pago", nullable = false, length = 150)
     private String formaDePago;
-
-    @OneToOne(cascade = CascadeType.MERGE)
-    @JoinColumn(name = "id_huesped", referencedColumnName = "id_huesped", insertable = false, updatable = false)
-    private HuespedEntity huesped;
 
 
     public ReservasEntity(LocalDate fechaE, LocalDate fechaS, String valor, String formaDePago) {
