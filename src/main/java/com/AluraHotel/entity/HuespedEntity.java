@@ -39,7 +39,6 @@ public class HuespedEntity {
     @JoinColumn(name = "id_reserva", referencedColumnName = "id_reserva", insertable = false, updatable = false)
     private ReservasEntity reservas;
 
-
     public HuespedEntity(String nombre, String apellido, LocalDate fechaDeNacimiento,
                          String nacionalidad, String telefono, Integer id_huesped) {
         this.nombre = nombre;
@@ -49,7 +48,6 @@ public class HuespedEntity {
         this.telefono = telefono;
         this.id_huesped = id_huesped;
     }
-
 
     @Override
     public String toString() {
