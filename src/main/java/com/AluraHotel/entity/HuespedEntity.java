@@ -17,13 +17,8 @@ import java.util.Date;
 public class HuespedEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "native")
-    @GenericGenerator(name = "native", strategy = "native")
     @Column(name = "id_huesped", nullable = false, length = 15)
-    private int id;
-
-    @Column(name = "id_reserva", nullable = false)
-    private Integer id_reserva;
+    private Integer id_huesped;
 
     @Column(nullable = false, length = 30, unique = true)
     private String nombre;
@@ -40,37 +35,27 @@ public class HuespedEntity {
     @Column(name="telefono", nullable = false, length = 15)
     private String telefono;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "id_reserva", referencedColumnName = "id_reserva", insertable = false, updatable = false)
-    private ReservasEntity reservasEntity;
+    private ReservasEntity reservas;
 
 
-    public HuespedEntity(String nombre, String apellido, LocalDate fechaDeNacimiento, String nacionalidad, String telefono, Integer id_reserva) {
+    public HuespedEntity(String nombre, String apellido, LocalDate fechaDeNacimiento,
+                         String nacionalidad, String telefono, Integer id_huesped) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.fechaDeNacimiento = fechaDeNacimiento;
         this.nacionalidad = nacionalidad;
         this.telefono = telefono;
-        this.id_reserva = id_reserva;
+        this.id_huesped = id_huesped;
     }
 
-    public HuespedEntity(int id, Integer id_reserva, String nombre, String apellido, LocalDate fechaDeNacimiento, String nacionalidad, String telefono, ReservasEntity reservasEntity) {
-        this.id = id;
-        this.id_reserva = id_reserva;
-        this.nombre = nombre;
-        this.apellido = apellido;
-        this.fechaDeNacimiento = fechaDeNacimiento;
-        this.nacionalidad = nacionalidad;
-        this.telefono = telefono;
-        this.reservasEntity = reservasEntity;
-    }
 
     @Override
     public String toString() {
         return "HuespedEntity{" +
-                "id='" + id + '\'' +
-                ", id_reserva=" + id_reserva +
-                ", nombre='" + nombre + '\'' +
+                "id_huesped=" + id_huesped +
+               ", nombre='" + nombre + '\'' +
                 ", apellido='" + apellido + '\'' +
                 ", fechaDeNacimiento=" + fechaDeNacimiento +
                 ", nacionalidad='" + nacionalidad + '\'' +

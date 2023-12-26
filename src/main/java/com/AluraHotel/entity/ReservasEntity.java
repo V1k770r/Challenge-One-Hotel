@@ -17,7 +17,7 @@ public class ReservasEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_reserva", nullable = false)
-    private Integer idReserva;
+    private Integer id_reserva;
 
     @Column(name = "fecha_de_entrada", nullable = false, columnDefinition = "DATE")
     private LocalDate fechaE;
@@ -39,16 +39,6 @@ public class ReservasEntity {
         this.formaDePago = formaDePago;
     }
 
-    public ReservasEntity(Integer idReserva, LocalDate fechaE, LocalDate fechaS, String valor, String formaDePago) {
-        this.idReserva = idReserva;
-        this.fechaE = fechaE;
-        this.fechaS = fechaS;
-        this.valor = valor;
-        this.formaDePago = formaDePago;
-    }
-
-    public ReservasEntity(String text, String text1, String text2, LocalDate localDate, String toolTipText, String string) {
-    }
 
     @Override
     public String toString() {
