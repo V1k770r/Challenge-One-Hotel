@@ -11,13 +11,15 @@ public class ReservasControlador{
 
     private ReservasDao reservasDao = new ReservasDao();
     private EntityManager em = UtilEntity.getEntityManager();
+    private ReservasEntity reservas;
+
 
     public void guardar (ReservasEntity reservas){
         this.reservasDao.guardar(reservas);
     }
 
-    public List<ReservasEntity> cargarReservas(ReservasEntity reservas){
-        return this.reservasDao.listarReservas();
+    public List<ReservasEntity> cargarReservas(){
+        return reservasDao.listarReservas();
     }
 
 

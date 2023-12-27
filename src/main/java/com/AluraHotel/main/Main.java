@@ -1,5 +1,7 @@
 package com.AluraHotel.main;
 
+import com.AluraHotel.controlador.ReservasControlador;
+import com.AluraHotel.dao.ReservasDao;
 import com.AluraHotel.entity.HuespedEntity;
 import com.AluraHotel.entity.ReservasEntity;
 import com.AluraHotel.util.UtilEntity;
@@ -13,11 +15,18 @@ import java.util.List;
 public class Main {
     public static void main(String[] args) {
 
- //       EntityManager em = UtilEntity.getEntityManager();
+//       EntityManager em = UtilEntity.getEntityManager();
+//
+//
+//        ReservasControlador qwe = new ReservasControlador();
+//        qwe.cargarReservas();
+
+
+
 //        List<HuespedEntity> huespedes = em.createQuery("SELECT e FROM HuespedEntity e",
 //             HuespedEntity.class).getResultList();
 //        System.out.println("-------Listar TODOS---------");
-//        huespedes.forEach(System.out::println);
+    //        huespedes.forEach(System.out::println);
 
 //        List<ReservasEntity> reservas = em.createQuery("SELECT e FROM ReservasEntity e",
 //                ReservasEntity.class).getResultList();

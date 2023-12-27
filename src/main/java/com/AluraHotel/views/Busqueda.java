@@ -23,7 +23,7 @@ public class Busqueda extends JFrame {
 	private DefaultTableModel modeloHuesped;
 	private JLabel labelAtras;
 	private JLabel labelExit;
-	private ReservasControlador reservasControlador;
+	private ReservasControlador reservasControlador = new ReservasControlador();
 	int xMouse, yMouse;
 
 
@@ -91,7 +91,7 @@ public class Busqueda extends JFrame {
 		modelo.addColumn("Forma de Pago");
 		JScrollPane scroll_table = new JScrollPane(tbReservas);
 		panel.addTab("Reservas", new ImageIcon(Busqueda.class.getResource("/imagenes/reservado.png")), scroll_table, null);
-		//cargarTablaReservas();
+		cargarTablaReservas();
 		scroll_table.setVisible(true);
 
 
@@ -254,20 +254,17 @@ public class Busqueda extends JFrame {
 
 
 
-//	private void cargarTablaReservas(){
-//		var reservas = this.reservasControlador.cargarReservas();
-//		reservas.forEach(reserva -> modelo.addRow(
-//				new Object[] {
-//						reserva.getId_reserva(),
-//						reserva.getFechaE(),
-//						reserva.getFechaS(),
-//						reserva.getValor(),
-//						reserva.getFormaDePago()}));
-//	}
+	private void cargarTablaReservas(){
+		var reservas = this.reservasControlador.cargarReservas();
+		reservas.forEach(reserva -> modelo.addRow(
+				new Object[] {
+						reserva.getId_reserva(),
+						reserva.getFechaE(),
+						reserva.getFechaS(),
+						reserva.getValor(),
+						reserva.getFormaDePago()}));
 
-
-
-
+	}
 
 
 
