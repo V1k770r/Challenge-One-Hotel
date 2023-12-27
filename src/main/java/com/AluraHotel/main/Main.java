@@ -8,15 +8,21 @@ import javax.persistence.EntityManager;
 import java.time.LocalDate;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-//
-//        EntityManager em = UtilEntity.getEntityManager();
+
+ //       EntityManager em = UtilEntity.getEntityManager();
 //        List<HuespedEntity> huespedes = em.createQuery("SELECT e FROM HuespedEntity e",
 //             HuespedEntity.class).getResultList();
 //        System.out.println("-------Listar TODOS---------");
 //        huespedes.forEach(System.out::println);
+
+//        List<ReservasEntity> reservas = em.createQuery("SELECT e FROM ReservasEntity e",
+//                ReservasEntity.class).getResultList();
+//        System.out.println("-------Listar TODOS---------");
+//        reservas.forEach(System.out::println);
 
 
 //        System.out.println("----CREAR UNO-------");

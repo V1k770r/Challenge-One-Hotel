@@ -3,9 +3,8 @@ package com.AluraHotel.controlador;
 import com.AluraHotel.dao.ReservasDao;
 import com.AluraHotel.entity.ReservasEntity;
 import com.AluraHotel.util.UtilEntity;
-
 import javax.persistence.EntityManager;
-
+import java.util.List;
 
 
 public class ReservasControlador{
@@ -17,7 +16,9 @@ public class ReservasControlador{
         this.reservasDao.guardar(reservas);
     }
 
-
+    public List<ReservasEntity> cargarReservas(ReservasEntity reservas){
+        return this.reservasDao.listarReservas();
+    }
 
 
 

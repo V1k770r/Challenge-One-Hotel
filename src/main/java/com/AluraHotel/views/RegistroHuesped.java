@@ -307,32 +307,21 @@ public class RegistroHuesped extends JFrame {
 		labelExit.setHorizontalAlignment(SwingConstants.CENTER);
 		labelExit.setForeground(SystemColor.black);
 		labelExit.setFont(new Font("Roboto", Font.PLAIN, 18));
+		header.add(btnexit);
 	}
 
 	public void guardarHuesped() {
-
-		if (txtFechaN.getDate() != null && !txtNombre.equals("") && !txtApellido.equals("") && !txtTelefono.equals("")) {
+		if (txtFechaN.getDate() != null  &&  !txtNombre.equals("")  &&  !txtApellido.equals("")  &&  !txtTelefono.equals("")) {
 			String fechaN = ((JTextField) txtFechaN.getDateEditor().getUiComponent()).getText();
-
+			int nReserva = Integer.parseInt(txtNreserva.getText());
 			HuespedEntity huespedes = new HuespedEntity(txtNombre.getText(), txtApellido.getText(),
-					Date.valueOf(fechaN).toLocalDate(), txtNacionalidad.getSelectedItem().toString(), txtTelefono.getText(), Integer.parseInt(txtNreserva.getText()));
+					Date.valueOf(fechaN).toLocalDate(), txtNacionalidad.getSelectedItem().toString(), txtTelefono.getText(), nReserva);
 			System.out.println(huespedes.toString());
 			this.huespedControlador.guardar(huespedes);
-
+			JOptionPane.showMessageDialog(this, "Registro exitoso!!! " + " Tu número de reserva es el: " + nReserva );
 		} else {
-			JOptionPane.showMessageDialog(this, "Rellenar todos los campos");
+			JOptionPane.showMessageDialog(this, "Debes rellenar todos los campos");
 		}
-
-//		try{
-//			String fechaN = ((JTextField)txtFechaN.getDateEditor().getUiComponent()).getText();
-//			System.out.println(fechaN);
-//			HuespedEntity huesped = new HuespedEntity(txtNreserva.getText(), txtNombre.getText(), txtApellido.getText(),
-//					Date.valueOf(fechaN).toLocalDate(),txtNacionalidad.getSelectedItem(),txtTelefono.getText());
-//			System.out.println(huesped.toString());
-//			HuespedControlador.guardar(huesped);
-//		}catch (Exception e){
-//			JOptionPane.showMessageDialog(contentPane,"Error" + e.getMessage(), "Error",JOptionPane.ERROR_MESSAGE);
-//		}
 }
 
 	//Código que permite mover la ventana por la pantalla según la posición de "x" y "y"	
