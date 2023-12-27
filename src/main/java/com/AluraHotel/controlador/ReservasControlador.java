@@ -1,6 +1,8 @@
 package com.AluraHotel.controlador;
 
+import com.AluraHotel.dao.HuespedDao;
 import com.AluraHotel.dao.ReservasDao;
+import com.AluraHotel.entity.HuespedEntity;
 import com.AluraHotel.entity.ReservasEntity;
 import com.AluraHotel.util.UtilEntity;
 import javax.persistence.EntityManager;

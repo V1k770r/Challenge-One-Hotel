@@ -1,5 +1,6 @@
 package com.AluraHotel.views;
 
+import com.AluraHotel.controlador.HuespedControlador;
 import com.AluraHotel.controlador.ReservasControlador;
 import com.AluraHotel.entity.ReservasEntity;
 
@@ -24,6 +25,7 @@ public class Busqueda extends JFrame {
 	private JLabel labelAtras;
 	private JLabel labelExit;
 	private ReservasControlador reservasControlador = new ReservasControlador();
+	private HuespedControlador huespedControlador = new HuespedControlador();
 	int xMouse, yMouse;
 
 
@@ -89,9 +91,11 @@ public class Busqueda extends JFrame {
 		modelo.addColumn("Fecha Check Out");
 		modelo.addColumn("Valor");
 		modelo.addColumn("Forma de Pago");
-		JScrollPane scroll_table = new JScrollPane(tbReservas);
-		panel.addTab("Reservas", new ImageIcon(Busqueda.class.getResource("/imagenes/reservado.png")), scroll_table, null);
 		cargarTablaReservas();
+		JScrollPane scroll_table = new JScrollPane(tbReservas);
+		panel.addTab("Reservas", new ImageIcon(Busqueda.class.getResource("/imagenes/reservado.png")),
+				scroll_table, null);
+
 		scroll_table.setVisible(true);
 
 
@@ -99,6 +103,8 @@ public class Busqueda extends JFrame {
 		tbHuespedes = new JTable();
 		tbHuespedes.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		tbHuespedes.setFont(new Font("Roboto", Font.PLAIN, 16));
+		JScrollPane scroll_tableHuespedes = new JScrollPane(tbHuespedes);
+		panel.addTab("Huéspedes", new ImageIcon(Busqueda.class.getResource("/imagenes/pessoas.png")), scroll_tableHuespedes, null);
 		modeloHuesped = (DefaultTableModel) tbHuespedes.getModel();
 		modeloHuesped.addColumn("Número de Huesped");
 		modeloHuesped.addColumn("Nombre");
@@ -107,8 +113,7 @@ public class Busqueda extends JFrame {
 		modeloHuesped.addColumn("Nacionalidad");
 		modeloHuesped.addColumn("Telefono");
 		modeloHuesped.addColumn("Número de Reserva");
-		JScrollPane scroll_tableHuespedes = new JScrollPane(tbHuespedes);
-		panel.addTab("Huéspedes", new ImageIcon(Busqueda.class.getResource("/imagenes/pessoas.png")), scroll_tableHuespedes, null);
+		cargarTablaHuespedes();
 		scroll_tableHuespedes.setVisible(true);
 
 		JLabel lblNewLabel_2 = new JLabel("");
@@ -263,13 +268,20 @@ public class Busqueda extends JFrame {
 						reserva.getFechaS(),
 						reserva.getValor(),
 						reserva.getFormaDePago()}));
-
 	}
 
-
-
-
-
+	private void cargarTablaHuespedes(){
+		var huespedes = this.huespedControlador.cargarHuespedes();
+		huespedes.forEach(huesped -> modeloHuesped.addRow(
+				new Object[] {
+						huesped.getId_huesped(),
+						huesped.getNombre(),
+						huesped.getApellido(),
+						huesped.getFechaDeNacimiento(),
+						huesped.getNacionalidad(),
+						huesped.getTelefono(),
+						huesped.getReservas()}));
+	}
 
 
 

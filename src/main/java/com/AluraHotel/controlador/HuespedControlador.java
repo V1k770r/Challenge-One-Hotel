@@ -6,6 +6,7 @@ import com.AluraHotel.entity.HuespedEntity;
 import com.AluraHotel.util.UtilEntity;
 
 import javax.persistence.EntityManager;
+import java.util.List;
 
 public class HuespedControlador {
 
@@ -15,4 +16,9 @@ public class HuespedControlador {
     public void guardar(HuespedEntity huesped) {
         this.huespedDao.guardar(huesped);
     }
+
+    public List<HuespedEntity> cargarHuespedes() {
+        return huespedDao.listarHuespedes();
+    }
+
 }
