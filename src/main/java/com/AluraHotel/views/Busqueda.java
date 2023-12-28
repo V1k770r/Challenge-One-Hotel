@@ -215,8 +215,8 @@ public class Busqueda extends JFrame {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 
-			//	buscarIdReservas();
-				buscarApellidoHuespedes();
+				buscarIdReservas();
+			//	buscarApellidoHuespedes();
 			}
 		});
 		btnbuscar.setLayout(null);

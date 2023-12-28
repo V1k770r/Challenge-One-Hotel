@@ -224,26 +224,18 @@ public class Login extends JFrame {
 	}
 	
 	private void Login() {
-		 String Usuario1= "admin";
-	     String Contraseña1="admin";
-
-		 String Usuario2="vic";
-		 String Contraseña2="vic";
+		 String Usuario= "admin";
+	     String Contraseña="admin";
 
 	        String contrase=new String (txtContrasena.getPassword());
 
-			if(txtUsuario.getText().equals(Usuario1) && contrase.equals(Contraseña1)){
-				MenuUsuario menu = new MenuUsuario();
-				menu.setVisible(true);
-				dispose();
-			} else if (txtUsuario.getText().equals(Usuario2) && contrase.equals(Contraseña2)){
+	        if(txtUsuario.getText().equals(Usuario) && contrase.equals(Contraseña)){
 	            MenuUsuario menu = new MenuUsuario();
 	            menu.setVisible(true);
 	            dispose();	 
 	        }else {
 	            JOptionPane.showMessageDialog(this, "Usuario o Contraseña no válidos");
 	        }
-
 	} 
 	 private void headerMousePressed(MouseEvent evt) {
 	        xMouse = evt.getX();
