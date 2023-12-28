@@ -68,13 +68,20 @@ public class Login extends JFrame {
 		imgHotel.setIcon(new ImageIcon(Login.class.getResource("/imagenes/img-hotel-login-.png")));
 		
 		JPanel btnexit = new JPanel();
+
 		btnexit.setBounds(251, 0, 53, 36);
 		panel_1.add(btnexit);
 		btnexit.addMouseListener(new MouseAdapter() {
-			@Override
+
 			public void mouseClicked(MouseEvent e) {
+
+				JButton btnexit = new JButton();
+
+
 				System.exit(0);
+
 			}
+
 			@Override
 			public void mouseEntered(MouseEvent e) {
 				btnexit.setBackground(Color.red);
@@ -95,7 +102,11 @@ public class Login extends JFrame {
 		btnexit.add(labelExit);
 		labelExit.setForeground(SystemColor.text);
 		labelExit.setFont(new Font("Roboto", Font.PLAIN, 18));
-		labelExit.setHorizontalAlignment(SwingConstants.CENTER);		
+		labelExit.setHorizontalAlignment(SwingConstants.CENTER);
+
+		btnexit.addActionListener(e-> salirSistema());
+
+
 		
 		txtUsuario = new JTextField();
 		txtUsuario.addMouseListener(new MouseAdapter() {
@@ -236,7 +247,22 @@ public class Login extends JFrame {
 	        }else {
 	            JOptionPane.showMessageDialog(this, "Usuario o Contraseña no válidos");
 	        }
-	} 
+	}
+
+
+	private void salirSistema() {
+		int opcion = JOptionPane.showConfirmDialog(this, "¿Estás seguro de que quieres cerrar la aplicación?",
+				"Confirmar Cierre", JOptionPane.YES_NO_OPTION);
+
+		if (opcion == JOptionPane.YES_OPTION) {
+			// Cerrar la aplicación
+			System.exit(0);
+		}
+	}
+
+
+
+
 	 private void headerMousePressed(MouseEvent evt) {
 	        xMouse = evt.getX();
 	        yMouse = evt.getY();
