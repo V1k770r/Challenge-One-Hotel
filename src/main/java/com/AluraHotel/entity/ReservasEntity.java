@@ -39,6 +39,9 @@ public class ReservasEntity {
         this.formaDePago = formaDePago;
     }
 
+    public ReservasEntity(Integer id_reserva){
+        this.id_reserva = id_reserva;
+    }
 
     @Override
     public String toString() {

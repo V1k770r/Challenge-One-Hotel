@@ -2,10 +2,12 @@ package com.AluraHotel.views;
 
 import com.AluraHotel.controlador.HuespedControlador;
 import com.AluraHotel.controlador.ReservasControlador;
+import com.AluraHotel.entity.HuespedEntity;
 import com.AluraHotel.entity.ReservasEntity;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
@@ -26,6 +28,7 @@ public class Busqueda extends JFrame {
 	private JLabel labelExit;
 	private ReservasControlador reservasControlador = new ReservasControlador();
 	private HuespedControlador huespedControlador = new HuespedControlador();
+
 	int xMouse, yMouse;
 
 
@@ -92,10 +95,10 @@ public class Busqueda extends JFrame {
 		modelo.addColumn("Valor");
 		modelo.addColumn("Forma de Pago");
 		cargarTablaReservas();
+
 		JScrollPane scroll_table = new JScrollPane(tbReservas);
 		panel.addTab("Reservas", new ImageIcon(Busqueda.class.getResource("/imagenes/reservado.png")),
 				scroll_table, null);
-
 		scroll_table.setVisible(true);
 
 
@@ -212,6 +215,8 @@ public class Busqueda extends JFrame {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 
+			//	buscarIdReservas();
+				buscarApellidoHuespedes();
 			}
 		});
 		btnbuscar.setLayout(null);
@@ -255,10 +260,23 @@ public class Busqueda extends JFrame {
 		lblEliminar.setBounds(0, 0, 122, 35);
 		btnEliminar.add(lblEliminar);
 		setResizable(false);
+
+		//Centro los datos dentro de la tabla Reservas
+		DefaultTableCellRenderer centerRenderer= new DefaultTableCellRenderer();
+		centerRenderer.setHorizontalAlignment(JLabel.CENTER);
+		for (int i = 0; i < tbReservas.getColumnCount(); i++) {
+			tbReservas.getColumnModel().getColumn(i).setCellRenderer(centerRenderer);
+		}
+		//Centro los datos dentro de la tabla Huespedes
+		DefaultTableCellRenderer centerRenderer1= new DefaultTableCellRenderer();
+		centerRenderer1.setHorizontalAlignment(JLabel.CENTER);
+		for (int i = 0; i < tbHuespedes.getColumnCount(); i++) {
+			tbHuespedes.getColumnModel().getColumn(i).setCellRenderer(centerRenderer1);
+		}
+
 	}
 
-
-
+	//metodo para cargar la tabla reservas
 	private void cargarTablaReservas(){
 		var reservas = this.reservasControlador.cargarReservas();
 		reservas.forEach(reserva -> modelo.addRow(
@@ -270,6 +288,27 @@ public class Busqueda extends JFrame {
 						reserva.getFormaDePago()}));
 	}
 
+	//metodo para buscar un elemento en la tabla reservas
+
+	private void buscarIdReservas(){
+
+		Integer nReserva = Integer.valueOf(txtBuscar.getText());
+		ReservasEntity reservaa = new ReservasEntity();
+		var nnReserva = this.reservasControlador.buscarById(reservaa, nReserva);
+					nnReserva.forEach(reserva -> modelo.addRow(
+					new Object[]{
+							reserva.getId_reserva(),
+							reserva.getFechaE(),
+							reserva.getFechaS(),
+							reserva.getValor(),
+							reserva.getFormaDePago()
+					}));
+
+	}
+
+
+
+	//metodo para cargar la tabla huespedes
 	private void cargarTablaHuespedes(){
 		var huespedes = this.huespedControlador.cargarHuespedes();
 		huespedes.forEach(huesped -> modeloHuesped.addRow(
@@ -280,12 +319,31 @@ public class Busqueda extends JFrame {
 						huesped.getFechaDeNacimiento(),
 						huesped.getNacionalidad(),
 						huesped.getTelefono(),
-						huesped.getReservas()}));
+						huesped.getReservas().getId_reserva()
+						}));
 	}
 
 
+	//metodo para buscar un elemento en la tabla reservas
 
-	
+	private void buscarApellidoHuespedes(){
+
+		String nApellido = txtBuscar.getText();
+		HuespedEntity huespedd = new HuespedEntity();
+				var nnApellido = this.huespedControlador.buscarByApellido(huespedd, nApellido);
+					nnApellido.forEach(huesped -> modeloHuesped.addRow(
+					new Object[]{
+							huesped.getId_huesped(),
+							huesped.getNombre(),
+							huesped.getApellido(),
+							huesped.getFechaDeNacimiento(),
+							huesped.getNacionalidad(),
+							huesped.getTelefono(),
+							huesped.getReservas().getId_reserva()
+				}));
+	}
+
+
 //Código que permite mover la ventana por la pantalla según la posición de "x" y "y"
 	 private void headerMousePressed(MouseEvent evt) {
 	        xMouse = evt.getX();

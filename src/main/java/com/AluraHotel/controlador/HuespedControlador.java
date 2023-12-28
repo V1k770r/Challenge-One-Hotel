@@ -6,6 +6,7 @@ import com.AluraHotel.entity.HuespedEntity;
 import com.AluraHotel.util.UtilEntity;
 
 import javax.persistence.EntityManager;
+import java.util.Collections;
 import java.util.List;
 
 public class HuespedControlador {
@@ -20,5 +21,13 @@ public class HuespedControlador {
     public List<HuespedEntity> cargarHuespedes() {
         return huespedDao.listarHuespedes();
     }
+
+    public List<HuespedEntity> buscarByApellido(HuespedEntity huespedes, String nApellido) {
+            return Collections.singletonList(huespedDao.getByApellido(huespedes, nApellido));
+    }
+
+
+
+
 
 }

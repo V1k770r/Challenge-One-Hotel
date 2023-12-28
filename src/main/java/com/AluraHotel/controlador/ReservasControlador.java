@@ -6,6 +6,8 @@ import com.AluraHotel.entity.HuespedEntity;
 import com.AluraHotel.entity.ReservasEntity;
 import com.AluraHotel.util.UtilEntity;
 import javax.persistence.EntityManager;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 
@@ -24,6 +26,8 @@ public class ReservasControlador{
         return reservasDao.listarReservas();
     }
 
-
+    public List<ReservasEntity> buscarById (ReservasEntity reservas, Integer nReservas){
+            return Collections.singletonList(reservasDao.getById(reservas, nReservas));
+    }
 
 }

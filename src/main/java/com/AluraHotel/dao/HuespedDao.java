@@ -7,10 +7,13 @@ import javax.persistence.EntityManager;
 import java.util.List;
 
 public class HuespedDao {
+
     private EntityManager em = UtilEntity.getEntityManager();
 
     public HuespedDao(){
     }
+
+
     public HuespedDao(EntityManager em) {
         this.em = em;
     }
@@ -25,21 +28,13 @@ public class HuespedDao {
         List<HuespedEntity> huespedes = em.createQuery
                 ("SELECT e FROM HuespedEntity e", HuespedEntity.class).getResultList();
         return huespedes;
+        }
+
+        public HuespedEntity getByApellido(HuespedEntity huespedes,String nApellido){
+                huespedes = em.find(HuespedEntity.class,nApellido);
+                return huespedes;
+        }
 
     }
 
-//    public static void main(String[] args) {
-//        HuespedDao hdao = new HuespedDao();
-//        Huesped huesped = new Huesped();
-//        huesped.setId("222222");
-//        huesped.setNombre("Camila");
-//        huesped.setApellido("Gomez");
-//        huesped.setNacionalidad("Argentinca");
-//        huesped.setFechaDeNacimiento(new Date(91, Calendar.APRIL,6));
-//        huesped.setTelefono("333333");
-//        hdao.insertarHuesped(huesped);
-//    }
 
-
-
-}
