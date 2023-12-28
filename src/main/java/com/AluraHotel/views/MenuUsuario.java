@@ -156,8 +156,8 @@ public class MenuUsuario extends JFrame {
 		panelMenu.add(btnExit);
 		btnExit.setLayout(null);
 
-		labelExit = new JLabel("Salir del Sistema");
-		labelExit.setIcon(new ImageIcon(MenuUsuario.class.getResource("/imagenes/cancelar.png")));
+		labelExit = new JLabel("Cerrar Sesion");
+		labelExit.setIcon(new ImageIcon(MenuUsuario.class.getResource("/imagenes/cerrar-sesion 32-px.png")));
 		labelExit.setForeground(SystemColor.text);
 		labelExit.setBounds(25, 11, 205, 34);
 		labelExit.setFont(new Font("Roboto", Font.PLAIN, 18));

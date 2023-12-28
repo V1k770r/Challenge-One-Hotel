@@ -46,7 +46,6 @@ public class MenuPrincipal extends JFrame {
 		setLocationRelativeTo(null);
 		setUndecorated(true);
 
-		
 		Panel panel = new Panel();
 		panel.setBackground(SystemColor.window);
 		panel.setBounds(0, 0, 910, 537);
@@ -100,13 +99,14 @@ public class MenuPrincipal extends JFrame {
 		btnexit.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				System.exit(0);
+				SalirDelSistema();
+				//System.exit(0);
 			}
 			@Override
 			public void mouseEntered(MouseEvent e) {
 				btnexit.setBackground(Color.red);
 				labelExit.setForeground(Color.white);
-			}			
+			}
 			@Override
 			public void mouseExited(MouseEvent e) {
 				 btnexit.setBackground(Color.white);
@@ -155,7 +155,17 @@ public class MenuPrincipal extends JFrame {
 		lblTitulo.setForeground(SystemColor.textHighlight);
 		lblTitulo.setFont(new Font("Roboto Light", Font.PLAIN, 20));
 	}
-	
+
+	// salir del sistema
+	private void SalirDelSistema() {
+		int opcion = JOptionPane.showConfirmDialog(null, "¿Estás seguro de que deseas salir de la aplicación?",
+				"Salir de la Aplicacion", JOptionPane.YES_NO_OPTION);
+		if (opcion == JOptionPane.YES_OPTION) {
+			// Cerrar la aplicación
+			System.exit(0);
+		}
+	}
+
 	//Código que permite movimentar a janela pela tela seguindo a posição de "x" e "y"	
 	private void headerMousePressed(MouseEvent evt) {
         xMouse = evt.getX();

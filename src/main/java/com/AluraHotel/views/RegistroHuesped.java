@@ -318,7 +318,7 @@ public class RegistroHuesped extends JFrame {
 					Date.valueOf(fechaN).toLocalDate(), txtNacionalidad.getSelectedItem().toString(), txtTelefono.getText(), nReserva);
 			System.out.println(huespedes.toString());
 			this.huespedControlador.guardar(huespedes);
-			JOptionPane.showMessageDialog(this, "Registro exitoso!!! " + " Tu número de reserva es el: " + nReserva );
+			JOptionPane.showMessageDialog(this, "Registro exitoso!!! "  +" \n" + "Tu número de reserva es el :" + nReserva );
 		} else {
 			JOptionPane.showMessageDialog(this, "Debes rellenar todos los campos");
 		}
