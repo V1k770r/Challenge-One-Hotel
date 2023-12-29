@@ -29,7 +29,8 @@ public class ReservasDao {
            return reservas;
     }
 
-    public ReservasEntity getById(ReservasEntity reservas, Integer nReservas){
+    public ReservasEntity getById( Integer nReservas){
+        ReservasEntity reservas;
         reservas = em.find(ReservasEntity.class, nReservas);
         return  reservas;
     }

@@ -26,8 +26,8 @@ public class ReservasControlador{
         return reservasDao.listarReservas();
     }
 
-    public List<ReservasEntity> buscarById (ReservasEntity reservas, Integer nReservas){
-            return Collections.singletonList(reservasDao.getById(reservas, nReservas));
+    public List<ReservasEntity> buscarById ( Integer nReservas){
+            return Collections.singletonList(reservasDao.getById( nReservas));
     }
 
 }

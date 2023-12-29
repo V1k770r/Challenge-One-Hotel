@@ -4,6 +4,7 @@ import com.AluraHotel.controlador.HuespedControlador;
 import com.AluraHotel.controlador.ReservasControlador;
 import com.AluraHotel.entity.HuespedEntity;
 import com.AluraHotel.entity.ReservasEntity;
+import com.AluraHotel.util.NumericUtilitario;
 
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.swing.*;
@@ -216,12 +217,18 @@ public class Busqueda extends JFrame {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 
-				buscarIdReservas();
-	//				buscarApellidoHuespedes();
+					NumericUtilitario validarNumero = new NumericUtilitario();
 
-
+					if(validarNumero.isNumeric(txtBuscar.getText())){
+						limpiarTablaReservas();
+							buscarIdReservas();
+					}	else{
+						limpiarTablaHuespedes();
+						buscarApellidoHuespedes();
+					}
 			}
 		});
+
 		btnbuscar.setLayout(null);
 		btnbuscar.setBackground(new Color(12, 138, 199));
 		btnbuscar.setBounds(748, 125, 122, 35);
@@ -296,8 +303,8 @@ public class Busqueda extends JFrame {
 	private void buscarIdReservas(){
 
 		Integer nReserva = Integer.valueOf(txtBuscar.getText());
-		ReservasEntity reservaa = new ReservasEntity();
-		var nnReserva = this.reservasControlador.buscarById(reservaa, nReserva);
+
+		var nnReserva = this.reservasControlador.buscarById( nReserva);
 					nnReserva.forEach(reserva -> modelo.addRow(
 					new Object[]{
 							reserva.getId_reserva(),
@@ -308,8 +315,6 @@ public class Busqueda extends JFrame {
 					}));
 
 	}
-
-
 
 	//metodo para cargar la tabla huespedes
 	private void cargarTablaHuespedes(){
@@ -326,15 +331,12 @@ public class Busqueda extends JFrame {
 						}));
 	}
 
-
 	//metodo para buscar un elemento en la tabla reservas
-
 	private void buscarApellidoHuespedes(){
 
-		String nApellido = txtBuscar.getText().trim();
-		HuespedEntity huespedd = new HuespedEntity();
-				var nnApellido = this.huespedControlador.buscarByApellido(huespedd, nApellido);
-					nnApellido.forEach(huesped -> modeloHuesped.addRow(
+			String nApellido = txtBuscar.getText().trim();
+			var nnApellido = this.huespedControlador.buscarByApellido(nApellido);
+			nnApellido.forEach(huesped -> modeloHuesped.addRow(
 					new Object[]{
 							huesped.getId_huesped(),
 							huesped.getNombre(),
@@ -343,9 +345,16 @@ public class Busqueda extends JFrame {
 							huesped.getNacionalidad(),
 							huesped.getTelefono(),
 							huesped.getReservas().getId_reserva()
-				}));
+					}));
 	}
 
+		private void limpiarTablaReservas (){
+			modelo.getDataVector().clear();
+		}
+
+		private void limpiarTablaHuespedes(){
+			modeloHuesped.getDataVector().clear();
+		}
 
 //Código que permite mover la ventana por la pantalla según la posición de "x" y "y"
 	 private void headerMousePressed(MouseEvent evt) {

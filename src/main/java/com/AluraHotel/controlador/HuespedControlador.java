@@ -22,8 +22,8 @@ public class HuespedControlador {
         return huespedDao.listarHuespedes();
     }
 
-    public List<HuespedEntity> buscarByApellido(HuespedEntity huespedes, String nApellido) {
-            return Collections.singletonList(huespedDao.getByApellido(huespedes, nApellido));
+    public List<HuespedEntity> buscarByApellido(String nApellido) {
+            return huespedDao.consultarPorApellido(nApellido);
     }
 
 

@@ -54,11 +54,12 @@ public class HuespedEntity {
     public String toString() {
         return "HuespedEntity{" +
                 "id_huesped=" + id_huesped +
-               ", nombre='" + nombre + '\'' +
+                ", nombre='" + nombre + '\'' +
                 ", apellido='" + apellido + '\'' +
                 ", fechaDeNacimiento=" + fechaDeNacimiento +
                 ", nacionalidad='" + nacionalidad + '\'' +
                 ", telefono='" + telefono + '\'' +
+                ", reservas=" + reservas +
                 '}';
     }
 }

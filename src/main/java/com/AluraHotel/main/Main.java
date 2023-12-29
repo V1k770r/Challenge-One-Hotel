@@ -16,7 +16,7 @@ import java.util.List;
 public class Main {
     public static void main(String[] args) {
 
-            EntityManager em = UtilEntity.getEntityManager();
+//            EntityManager em = UtilEntity.getEntityManager();
 //
 //
 //        ReservasControlador qwe = new ReservasControlador();
@@ -69,12 +69,11 @@ public class Main {
 
 
 //        System.out.println("-----BUSCAR UNO-----------");
-//        String Apellido1 = "Ovalle";
+//        String apellidoo = "bellido";
 //        HuespedEntity huespedes = new HuespedEntity();
-//        Query q = em.createQuery("SELECT e FROM HuespedEntity e WHERE huespedes "
-//                + huespedes.getApellido());
-//
-//        System.out.println("Empleado encontrado" + q.getResultList());
+//       String jpql =  "SELECT P FROM HuespedEntity P WHERE P.apellido =: apellido";
+//       var q =  em.createQuery(jpql, HuespedEntity.class).setParameter("apellido",apellidoo).getResultList();
+//        System.out.println(q);
 
 
 
