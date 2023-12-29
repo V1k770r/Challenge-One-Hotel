@@ -7,6 +7,7 @@ import com.AluraHotel.entity.ReservasEntity;
 import com.AluraHotel.util.UtilEntity;
 
 import javax.persistence.EntityManager;
+import javax.persistence.Query;
 import java.time.LocalDate;
 import java.util.Calendar;
 import java.util.Date;
@@ -15,7 +16,7 @@ import java.util.List;
 public class Main {
     public static void main(String[] args) {
 
-//       EntityManager em = UtilEntity.getEntityManager();
+            EntityManager em = UtilEntity.getEntityManager();
 //
 //
 //        ReservasControlador qwe = new ReservasControlador();
@@ -66,11 +67,14 @@ public class Main {
 //
 //        System.out.println("Nueva reserva creada:" + reservas);
 
-       /*
-        System.out.println("-----BUSCAR UNO-----------");
-        int employeeId = 1;
-        Employee employee = em.find(Employee.class, employeeId);
-        System.out.println("Empleado encontrado" + employee);*/
+
+//        System.out.println("-----BUSCAR UNO-----------");
+//        String Apellido1 = "Ovalle";
+//        HuespedEntity huespedes = new HuespedEntity();
+//        Query q = em.createQuery("SELECT e FROM HuespedEntity e WHERE huespedes "
+//                + huespedes.getApellido());
+//
+//        System.out.println("Empleado encontrado" + q.getResultList());
 
 
 

@@ -4,7 +4,9 @@ import com.AluraHotel.entity.HuespedEntity;
 import com.AluraHotel.util.UtilEntity;
 
 import javax.persistence.EntityManager;
+import javax.persistence.Query;
 import java.util.List;
+import java.util.Queue;
 
 public class HuespedDao {
 
@@ -31,7 +33,9 @@ public class HuespedDao {
         }
 
         public HuespedEntity getByApellido(HuespedEntity huespedes,String nApellido){
-                huespedes = em.find(HuespedEntity.class,nApellido);
+
+                Query q = em.createQuery("SELECT e FROM HuespedEntity WHERE e.nApellido = "
+                        + huespedes.getApellido());
                 return huespedes;
         }
 

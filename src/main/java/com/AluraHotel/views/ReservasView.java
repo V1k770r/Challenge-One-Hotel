@@ -16,7 +16,6 @@ import java.beans.PropertyChangeListener;
 import java.sql.Date;
 import java.util.Calendar;
 
-
 @SuppressWarnings("serial")
 public class ReservasView extends JFrame {
 

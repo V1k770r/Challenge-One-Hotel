@@ -5,6 +5,7 @@ import com.AluraHotel.controlador.ReservasControlador;
 import com.AluraHotel.entity.HuespedEntity;
 import com.AluraHotel.entity.ReservasEntity;
 
+import javax.persistence.criteria.CriteriaBuilder;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableCellRenderer;
@@ -216,7 +217,9 @@ public class Busqueda extends JFrame {
 			public void mouseClicked(MouseEvent e) {
 
 				buscarIdReservas();
-			//	buscarApellidoHuespedes();
+	//				buscarApellidoHuespedes();
+
+
 			}
 		});
 		btnbuscar.setLayout(null);
@@ -328,7 +331,7 @@ public class Busqueda extends JFrame {
 
 	private void buscarApellidoHuespedes(){
 
-		String nApellido = txtBuscar.getText();
+		String nApellido = txtBuscar.getText().trim();
 		HuespedEntity huespedd = new HuespedEntity();
 				var nnApellido = this.huespedControlador.buscarByApellido(huespedd, nApellido);
 					nnApellido.forEach(huesped -> modeloHuesped.addRow(
