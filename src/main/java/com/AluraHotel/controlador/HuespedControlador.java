@@ -14,6 +14,7 @@ public class HuespedControlador {
     private HuespedDao huespedDao = new HuespedDao();
     private EntityManager em = UtilEntity.getEntityManager();
 
+
     public void guardar(HuespedEntity huesped) {
         this.huespedDao.guardar(huesped);
     }
@@ -26,8 +27,12 @@ public class HuespedControlador {
             return huespedDao.consultarPorApellido(nApellido);
     }
 
+    public static void EliminarHuespedById(Integer integer) {
 
+    }
 
+    public List<HuespedEntity> buscarHuespedes () {
+        return this.huespedDao.buscar();
 
-
+    }
 }

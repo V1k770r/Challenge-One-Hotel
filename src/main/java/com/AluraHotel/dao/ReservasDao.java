@@ -6,7 +6,6 @@ import javax.persistence.EntityManager;
 import java.util.List;
 
 
-
 public class ReservasDao {
     private EntityManager em = UtilEntity.getEntityManager();
 
@@ -36,6 +35,20 @@ public class ReservasDao {
     }
 
 
+    public void eliminar(Integer id){
+
+        ReservasEntity reservas = new ReservasEntity();
+        em.find(ReservasEntity.class, id);
+        em.getTransaction().begin();
+        em.remove(reservas);
+        em.getTransaction().commit();
+        em.close();
+    }
 
 
+    public List<ReservasEntity> buscar() {
+            List<ReservasEntity> reservas = em.createQuery
+                    ("SELECT e FROM ReservasEntity e", ReservasEntity.class).getResultList();
+            return reservas;
+        }
 }

@@ -16,7 +16,7 @@ import java.util.List;
 public class Main {
     public static void main(String[] args) {
 
-//            EntityManager em = UtilEntity.getEntityManager();
+           EntityManager em = UtilEntity.getEntityManager();
 //
 //
 //        ReservasControlador qwe = new ReservasControlador();
@@ -102,9 +102,19 @@ public class Main {
         em.getTransaction().commit();
         em.close();*/
 
-
-
-
+        System.out.println("----ELIMINAR-----");
+        Integer id_reserva = 21;
+        ReservasEntity reservas = em.find(ReservasEntity.class, id_reserva);
+        System.out.println("Reserva a eliminar " + id_reserva);
+        try {
+            em.getTransaction().begin();
+            em.remove(reservas);
+            em.getTransaction().commit();
+        }catch (Exception e){
+            e.printStackTrace();
+        } finally {
+            em.close();
+        }
 
     }
 }

@@ -1,6 +1,7 @@
 package com.AluraHotel.dao;
 
 import com.AluraHotel.entity.HuespedEntity;
+import com.AluraHotel.entity.ReservasEntity;
 import com.AluraHotel.util.UtilEntity;
 
 import javax.persistence.EntityManager;
@@ -36,5 +37,11 @@ public class HuespedDao {
             String jpql = "SELECT P FROM HuespedEntity AS P WHERE P.apellido =: apellido";
             return em.createQuery(jpql, HuespedEntity.class).setParameter("apellido", nApellido).getResultList();
     }
+
+    public List<HuespedEntity> buscar() {
+        List<HuespedEntity> huespedes = em.createQuery
+                ("SELECT e FROM ReservasEntity e", HuespedEntity.class).getResultList();
+        return huespedes;
+        }
 
 }
