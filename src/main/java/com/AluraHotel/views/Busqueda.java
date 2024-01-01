@@ -31,7 +31,7 @@ public class Busqueda extends JFrame {
 	private JLabel labelExit;
 	private ReservasControlador reservasControlador = new ReservasControlador();
 	private HuespedControlador huespedControlador = new HuespedControlador();
-	private Integer tbSeleccionada = 0;
+
 	int xMouse, yMouse;
 
 
@@ -72,7 +72,6 @@ public class Busqueda extends JFrame {
 		contentPane.add(txtBuscar);
 		txtBuscar.setColumns(10);
 
-
 		JLabel lblNewLabel_4 = new JLabel("SISTEMA DE BÚSQUEDA");
 		lblNewLabel_4.setForeground(new Color(12, 138, 199));
 		lblNewLabel_4.setFont(new Font("Roboto Black", Font.BOLD, 24));
@@ -84,7 +83,6 @@ public class Busqueda extends JFrame {
 		panel.setFont(new Font("Roboto", Font.PLAIN, 16));
 		panel.setBounds(20, 169, 865, 328);
 		contentPane.add(panel);
-
 
 		tbReservas = new JTable();
 		tbReservas.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
@@ -305,7 +303,7 @@ public class Busqueda extends JFrame {
 					}
 
 					} else {
-					JOptionPane.showMessageDialog(null, "hubo un error, busca bien insecto");
+					JOptionPane.showMessageDialog(null, "Hubo un error, debe indicar que reserva o huesped desea eliminar");
 					}
 				}
 		});
@@ -425,35 +423,10 @@ public class Busqueda extends JFrame {
 //		}
 //	}
 //
-//	private void mostrarTablaHuespedes() {
-//		List<HuespedEntity> huespedes = buscarReservas();
-//		try {
-//			for (HuespedEntity huespedes1 : huespedes) {
-//				modeloHuesped.addRow(new Object[]{
-//						huespedes1.getId_huesped(),
-//						huespedes1.getNombre(),
-//						huespedes1.getApellido(),
-//						huespedes1.getFechaDeNacimiento(),
-//						huespedes1.getNacionalidad(),
-//						huespedes1.getTelefono(),
-//						huespedes1.getReservas().getId_reserva()
-//				});
-//			}
-//		} catch (Exception e) {
-//			throw e;
-//
-//		}
 //
 //
 //
-//			private void buscarReservas () {
-//				this.reservasControlador.buscar();
-//			}
-//
-//		private void buscarHuespedes(){
-//			this.huespedControlador.buscarHuespedes();
-//		}
-//
+
 
 
 //

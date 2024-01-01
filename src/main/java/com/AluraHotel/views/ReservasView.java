@@ -298,9 +298,10 @@ public class ReservasView extends JFrame {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				if (ReservasView.txtFechaEntrada.getDate() != null && ReservasView.txtFechaSalida.getDate() != null) {		
+
+					guardarReserva();
 					RegistroHuesped registro = new RegistroHuesped();
 					registro.setVisible(true);
-					guardarReserva();
 					
 				} else {
 					JOptionPane.showMessageDialog(null, "Debes llenar todos los campos.");

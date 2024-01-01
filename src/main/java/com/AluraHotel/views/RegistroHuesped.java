@@ -319,6 +319,7 @@ public class RegistroHuesped extends JFrame {
 			System.out.println(huespedes.toString());
 			this.huespedControlador.guardar(huespedes);
 			JOptionPane.showMessageDialog(this, "Registro exitoso!!! "  +" \n" + "Tu número de reserva es el :" + nReserva );
+
 		} else {
 			JOptionPane.showMessageDialog(this, "Debes rellenar todos los campos");
 		}
