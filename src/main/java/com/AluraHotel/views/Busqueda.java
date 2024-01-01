@@ -183,13 +183,11 @@ public class Busqueda extends JFrame {
 				usuario.setVisible(true);
 				dispose();
 			}
-
 			@Override
 			public void mouseEntered(MouseEvent e) { //Al usuario pasar el mouse por el botón este cambiará de color
 				btnexit.setBackground(Color.red);
 				labelExit.setForeground(Color.white);
 			}
-
 			@Override
 			public void mouseExited(MouseEvent e) { //Al usuario quitar el mouse por el botón este volverá al estado original
 				btnexit.setBackground(Color.white);
@@ -280,40 +278,36 @@ public class Busqueda extends JFrame {
 				int filaReservas = tbReservas.getSelectedRow();
 				int filaHuespedes = tbHuespedes.getSelectedRow();
 
-
 				if (filaReservas > 0) {
 					String reserva = tbReservas.getValueAt(filaReservas, 0).toString();
-					int confirmar = JOptionPane.showConfirmDialog(null, "Deseas borrar la reserva?");
+					int confirmar = JOptionPane.showConfirmDialog(null, "Deseas borrar la reserva N° " + reserva + "?");
 
-					if (confirmar == JOptionPane.YES_OPTION) {
-						String valor = tbReservas.getValueAt(filaReservas, 0).toString();
-						reservasControlador.eliminarReservabyId(Integer.valueOf(valor));
-						JOptionPane.showMessageDialog(contentPane, "reserva borrada");
+						if (confirmar == JOptionPane.YES_OPTION) {
+							String valor = tbReservas.getValueAt(filaReservas, 0).toString();
+							reservasControlador.eliminarRowbyId(Integer.valueOf(valor));
+							JOptionPane.showMessageDialog(contentPane, " la reserva N°  " + reserva + " fue  borrada");
 
-						//elminarTabla();
-						//mostrarTablaHuepedes();
-						//mostrarTablaReservas();
+							limpiarTablaReservas();
+							cargarTablaReservas();
+							}
 
-					} else if (filaHuespedes >= 0) {
+					} else if (filaHuespedes > 0) {
 						String huespedes = tbHuespedes.getValueAt(filaHuespedes, 0).toString();
-						int confirmaH = JOptionPane.showConfirmDialog(null, "Desea borrar la reserva?");
+						int confirmaH = JOptionPane.showConfirmDialog(null, "Desea borrar el huesped N° " + huespedes + " ?");
 
-						if (confirmaH == JOptionPane.YES_OPTION) {
-							String valor = tbHuespedes.getValueAt(filaHuespedes, 0).toString();
-							HuespedControlador.EliminarHuespedById(Integer.valueOf(valor));
-							JOptionPane.showMessageDialog(contentPane, "Reserva borrada");
+							if (confirmaH == JOptionPane.YES_OPTION) {
+								String valor = tbHuespedes.getValueAt(filaHuespedes, 0).toString();
+								huespedControlador.EliminarHuespedById(Integer.valueOf(valor));
+								JOptionPane.showMessageDialog(contentPane, "Reserva borrada");
 
-							//eliminarTabla();
-							//mostrarTablaHuespedes();
-							//mostrarTablaReservas();
-						}
-					} else {
-						JOptionPane.showMessageDialog(null, "hubo un error, busca bien :v");
+							limpiarTablaHuespedes();
+							cargarTablaHuespedes();
 					}
 
+					} else {
+					JOptionPane.showMessageDialog(null, "hubo un error, busca bien insecto");
+					}
 				}
-
-			}
 		});
 
 
@@ -408,10 +402,10 @@ public class Busqueda extends JFrame {
 	}
 
 
-	private void eliminarTabla() {
-		((DefaultTableModel) tbHuespedes.getModel()).setRowCount(0);
-		((DefaultTableModel) tbReservas.getModel()).setRowCount(0);
-	}
+//	private void eliminarTabla() {
+//		((DefaultTableModel) tbHuespedes.getModel()).setRowCount(0);
+//		((DefaultTableModel) tbReservas.getModel()).setRowCount(0);
+//	}
 
 
 //	private void mostrarTablaReservas() {

@@ -29,8 +29,8 @@ public class ReservasControlador{
             return Collections.singletonList(reservasDao.getById( nReservas));
     }
 
-    public void eliminarReservabyId(Integer id ){
-        this.reservasDao.eliminar(id);
+    public void eliminarRowbyId( Integer id ){
+        this.reservasDao.eliminar( id);
     }
 
     public List<ReservasEntity> buscar() {

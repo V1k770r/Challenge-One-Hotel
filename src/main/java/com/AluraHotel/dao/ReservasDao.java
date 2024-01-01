@@ -36,13 +36,11 @@ public class ReservasDao {
 
 
     public void eliminar(Integer id){
-
-        ReservasEntity reservas = new ReservasEntity();
-        em.find(ReservasEntity.class, id);
+        ReservasEntity reservas =  em.find(ReservasEntity.class, id);
         em.getTransaction().begin();
         em.remove(reservas);
         em.getTransaction().commit();
-        em.close();
+
     }
 
 

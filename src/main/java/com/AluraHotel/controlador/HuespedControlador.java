@@ -27,7 +27,8 @@ public class HuespedControlador {
             return huespedDao.consultarPorApellido(nApellido);
     }
 
-    public static void EliminarHuespedById(Integer integer) {
+    public void EliminarHuespedById(Integer id) {
+        this.huespedDao.eliminar(id);
 
     }
 

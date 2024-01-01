@@ -44,4 +44,10 @@ public class HuespedDao {
         return huespedes;
         }
 
+    public void eliminar(Integer id) {
+        HuespedEntity huesped =  em.find(HuespedEntity.class, id);
+        em.getTransaction().begin();
+        em.remove(huesped);
+        em.getTransaction().commit();
+    }
 }
