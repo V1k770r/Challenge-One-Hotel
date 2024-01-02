@@ -9,6 +9,7 @@ import javax.persistence.EntityManager;
 import java.net.Inet4Address;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Date;
 import java.util.List;
 
 
@@ -35,5 +36,9 @@ public class ReservasControlador{
 
     public List<ReservasEntity> buscar() {
                 return this.reservasDao.buscar();
+    }
+
+    public void editarTablaReserva(Integer id, String valor2, String valor3, String valor4, String valor5) {
+        this.reservasDao.editar(id, valor2,valor3,valor4,valor5);
     }
 }

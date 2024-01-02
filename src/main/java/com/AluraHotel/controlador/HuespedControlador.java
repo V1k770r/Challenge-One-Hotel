@@ -1,12 +1,10 @@
 package com.AluraHotel.controlador;
 
 import com.AluraHotel.dao.HuespedDao;
-import com.AluraHotel.dao.ReservasDao;
 import com.AluraHotel.entity.HuespedEntity;
 import com.AluraHotel.util.UtilEntity;
 
 import javax.persistence.EntityManager;
-import java.util.Collections;
 import java.util.List;
 
 public class HuespedControlador {
@@ -35,5 +33,10 @@ public class HuespedControlador {
     public List<HuespedEntity> buscarHuespedes () {
         return this.huespedDao.buscar();
 
+    }
+
+
+    public void editarTablaHuesped(Integer id, String valor2, String valor3, String valor4, String valor5, String valor6, Integer valor7) {
+        this.huespedDao.editar(id, valor2,valor3,valor4,valor5,valor6,valor7);
     }
 }

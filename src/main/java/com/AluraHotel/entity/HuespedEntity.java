@@ -3,19 +3,16 @@ package com.AluraHotel.entity;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
-import javax.persistence.criteria.CriteriaBuilder;
 import java.time.LocalDate;
-import java.util.Date;
 
 @Entity
 @Table(name="huespedes")
 @Getter
 @Setter
 @NoArgsConstructor
-public class HuespedEntity {
+public class    HuespedEntity {
 
     @Id
     @Column(name = "id_huesped", nullable = false, length = 15)
