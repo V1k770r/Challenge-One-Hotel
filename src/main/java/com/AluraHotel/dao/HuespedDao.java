@@ -50,21 +50,21 @@ public class HuespedDao {
         em.getTransaction().commit();
     }
 
-    public void editar(Integer id, String valor2, String valor3, String valor4, String valor5, String valor6, Integer valor7) {
-        HuespedEntity huespedToUpdate = em.find(HuespedEntity.class, id);
-        ReservasEntity reservas = new ReservasEntity();
+    public void editar(Integer id, String valor2, String valor3, String valor4, String valor5, String valor6,
+                       Integer valor7) {
+        HuespedEntity huespedes = em.find(HuespedEntity.class, id);
 
-        huespedToUpdate.setId_huesped(id);
-        huespedToUpdate.setNombre(valor2);
-        huespedToUpdate.setApellido(valor3);
-        huespedToUpdate.setFechaDeNacimiento(LocalDate.parse(valor4));
-        huespedToUpdate.setNacionalidad(valor5);
-        huespedToUpdate.setTelefono(valor6);
-        huespedToUpdate.getReservas().setId_reserva(valor7);
+        huespedes.setId_huesped(id);
+        huespedes.setNombre(valor2);
+        huespedes.setApellido(valor3);
+        huespedes.setFechaDeNacimiento(LocalDate.parse(valor4));
+        huespedes.setNacionalidad(valor5);
+        huespedes.setTelefono(valor6);
+        huespedes.getReservas().setId_reserva(valor7);
 
 
         em.getTransaction().begin();
-        em.merge(huespedToUpdate);
+        em.merge(huespedes);
         em.getTransaction().commit();
 
     }

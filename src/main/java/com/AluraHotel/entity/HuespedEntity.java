@@ -12,7 +12,7 @@ import java.time.LocalDate;
 @Getter
 @Setter
 @NoArgsConstructor
-public class    HuespedEntity {
+public class HuespedEntity {
 
     @Id
     @Column(name = "id_huesped", nullable = false, length = 15)
