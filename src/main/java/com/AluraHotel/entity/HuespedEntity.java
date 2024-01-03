@@ -47,6 +47,16 @@ public class HuespedEntity {
         this.id_huesped = id_huesped;
     }
 
+    public HuespedEntity(Integer id_huesped, String nombre, String apellido, LocalDate fechaDeNacimiento, String nacionalidad, String telefono, ReservasEntity reservas) {
+        this.id_huesped = id_huesped;
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.fechaDeNacimiento = fechaDeNacimiento;
+        this.nacionalidad = nacionalidad;
+        this.telefono = telefono;
+        this.reservas = reservas;
+    }
+
     @Override
     public String toString() {
         return "HuespedEntity{" +

@@ -5,6 +5,7 @@ import com.AluraHotel.controlador.ReservasControlador;
 import com.AluraHotel.entity.HuespedEntity;
 import com.AluraHotel.entity.ReservasEntity;
 import com.AluraHotel.util.NumericUtilitario;
+import org.w3c.dom.ls.LSOutput;
 
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.swing.*;
@@ -15,14 +16,14 @@ import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
+import java.time.LocalDate;
+import java.util.Date;
 import java.util.Optional;
 
 import static com.AluraHotel.views.ReservasView.txtFechaEntrada;
 
 @SuppressWarnings("serial")
 public class Busqueda extends JFrame {
-
-
 	private JPanel contentPane;
 	private JTextField txtBuscar;
 	private JTable tbHuespedes;
@@ -35,7 +36,6 @@ public class Busqueda extends JFrame {
 	private HuespedControlador huespedControlador = new HuespedControlador();
 
 	int xMouse, yMouse;
-
 
 	/**
 	 * Launch the application.
@@ -247,61 +247,82 @@ public class Busqueda extends JFrame {
 		btnEditar.setCursor(new Cursor(Cursor.HAND_CURSOR));
 		contentPane.add(btnEditar);
 
-
 		btnEditar.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-
 				int filaReservas = tbReservas.getSelectedRow();
 				int filaHuespedes = tbHuespedes.getSelectedRow();
 
-				if (filaReservas > 0) {
-					String reserva = tbReservas.getValueAt(filaReservas, 0).toString();
-					int confirmar = JOptionPane.showConfirmDialog(null, "Deseas editar la reserva N° "
-							+ reserva + "?");
-
-					if (confirmar == JOptionPane.YES_OPTION) {
-						String valor1 = tbReservas.getValueAt(filaReservas, 0).toString();
-						String valor2 = tbReservas.getValueAt(filaReservas,1).toString();
-						String valor3 = tbReservas.getValueAt(filaReservas,2).toString();
-						String valor4 = tbReservas.getValueAt(filaReservas,3).toString();
-						String valor5 = tbReservas.getValueAt(filaReservas,4).toString();
-
-						reservasControlador.editarTablaReserva(Integer.valueOf(valor1),valor2,valor3,valor4,valor5);
-						JOptionPane.showMessageDialog(contentPane, " la reserva N°  " + reserva + " fue  edita");
-
-						limpiarTablaReservas();
-						cargarTablaReservas();
-					}
-
-				} else if (filaHuespedes > 0) {
-					String huespedes = tbHuespedes.getValueAt(filaHuespedes, 0).toString();
-					int confirmaH = JOptionPane.showConfirmDialog(null, "Desea editar el huesped N° " +
-							huespedes + " ?");
-
-					if (confirmaH == JOptionPane.YES_OPTION) {
-						String valor1 = tbHuespedes.getValueAt(filaHuespedes, 0).toString();
-						String valor2 = tbHuespedes.getValueAt(filaHuespedes,1).toString();
-						String valor3 = tbHuespedes.getValueAt(filaHuespedes,2).toString();
-						String valor4 = tbHuespedes.getValueAt(filaHuespedes,3).toString();
-						String valor5 = tbHuespedes.getValueAt(filaHuespedes,4).toString();
-						String valor6 = tbHuespedes.getValueAt(filaHuespedes,5).toString();
-						String valor7 = tbHuespedes.getValueAt(filaHuespedes,6).toString();
-
-						huespedControlador.editarTablaHuesped(Integer.valueOf(valor1),valor2,valor3,
-								valor4,valor5,valor6,Integer.valueOf(valor7));
-						JOptionPane.showMessageDialog(contentPane, "Reserva editada");
-
-						limpiarTablaHuespedes();
-						cargarTablaHuespedes();
-					}
-
-				} else {
-					JOptionPane.showMessageDialog(null, "Hubo un error, debe indicar que reserva " +
-							"o huesped desea eliminar");
+				if(filaReservas >=0) {
+					ActualizarReservas();
+					limpiarTablaReservas();
+					cargarTablaReservas();
+				}
+				else if (filaHuespedes >=0){
+					actualizarHuespedes();
+					limpiarTablaReservas();
+					cargarTablaReservas();
 				}
 			}
 		});
+
+
+//		btnEditar.addMouseListener(new MouseAdapter() {
+//			@Override
+//			public void mouseClicked(MouseEvent e) {
+//
+//				int filaReservas = tbReservas.getSelectedRow();
+//				int filaHuespedes = tbHuespedes.getSelectedRow();
+
+//				if (filaReservas > 0) {
+//					String reserva = tbReservas.getValueAt(filaReservas, 0).toString();
+//					int confirmar = JOptionPane.showConfirmDialog(null, "Deseas editar la reserva N° "
+//							+ reserva + "?");
+//
+//					if (confirmar == JOptionPane.YES_OPTION) {
+//						String valor1 = tbReservas.getValueAt(filaReservas, 0).toString();
+//						System.out.println(valor1);
+//						String valor2 = tbReservas.getValueAt(filaReservas, 1).toString();
+//						String valor3 = tbReservas.getValueAt(filaReservas, 2).toString();
+//						String valor4 = tbReservas.getValueAt(filaReservas, 3).toString();
+//						String valor5 = tbReservas.getValueAt(filaReservas, 4).toString();
+//
+//						reservasControlador.editarTablaReserva(Integer.valueOf(valor1), valor2, valor3, valor4, valor5);
+//						JOptionPane.showMessageDialog(contentPane, " la reserva N°  " + reserva + " fue  edita");
+//
+//						limpiarTablaReservas();
+//						cargarTablaReservas();
+//					}
+//
+//				} else if (filaHuespedes > 0) {
+//					String huespedes = tbHuespedes.getValueAt(filaHuespedes, 0).toString();
+//					int confirmaH = JOptionPane.showConfirmDialog(null, "Desea editar el huesped N° " +
+//							huespedes + "  ?");
+//
+//					if (confirmaH == JOptionPane.YES_OPTION) {
+//						String valor1 = tbHuespedes.getValueAt(filaHuespedes, 0).toString();
+//
+//						String valor2 = tbHuespedes.getValueAt(filaHuespedes,1).toString();
+//						String valor3 = tbHuespedes.getValueAt(filaHuespedes,2).toString();
+//						String valor4 = tbHuespedes.getValueAt(filaHuespedes,3).toString();
+//						String valor5 = tbHuespedes.getValueAt(filaHuespedes,4).toString();
+//						String valor6 = tbHuespedes.getValueAt(filaHuespedes,5).toString();
+//						String valor7 = tbHuespedes.getValueAt(filaHuespedes,6).toString();
+//
+//						huespedControlador.editarTablaHuesped(Integer.valueOf(valor1),valor2,valor3,
+//								valor4,valor5,valor6,Integer.valueOf(valor7));
+//						JOptionPane.showMessageDialog(contentPane, "Reserva editada");
+//
+//						limpiarTablaHuespedes();
+//						cargarTablaHuespedes();
+//					}
+//
+//				} else {
+//					JOptionPane.showMessageDialog(null, "Hubo un error, debe indicar que reserva " +
+//							"o huesped desea editar");
+//				}
+//			}
+//		});
 
 		JLabel lblEditar = new JLabel("EDITAR");
 		lblEditar.setHorizontalAlignment(SwingConstants.CENTER);
@@ -446,6 +467,54 @@ public class Busqueda extends JFrame {
 						huesped.getReservas().getId_reserva()
 				}));
 	}
+
+	private void ActualizarReservas() {
+		Optional.ofNullable(modelo.getValueAt(tbReservas.getSelectedRow(), tbReservas.getSelectedColumn()))
+				.ifPresentOrElse(fila ->{
+
+					LocalDate fechaE = LocalDate.parse((modelo.getValueAt(tbReservas.getSelectedRow(),1 ).toString()));
+					LocalDate fechaS = LocalDate.parse(modelo.getValueAt(tbReservas.getSelectedRow(),2 ).toString());
+					String valor = (String) modelo.getValueAt(tbReservas.getSelectedRow(), 3);
+					String formaPago = (String) modelo.getValueAt(tbReservas.getSelectedRow(), 4);
+					Integer id = Integer.valueOf((modelo.getValueAt(tbReservas.getSelectedRow(),0 ).toString()));
+
+					this.reservasControlador.editarTablaReserva (fechaE, fechaS, valor, formaPago,id);
+
+					JOptionPane.showMessageDialog(this, String.format("Registro Modificado con exito"));
+
+				}, ()-> JOptionPane.showMessageDialog(this, "Falto cambiar el valor!!!"));
+	}
+
+	private void actualizarHuespedes() {
+		Optional.ofNullable(modeloHuesped.getValueAt(tbHuespedes.getSelectedRow(), tbHuespedes.getSelectedColumn()))
+				.ifPresentOrElse(filaHuespedes ->{
+
+
+					Integer id_huesped= Integer.valueOf(modeloHuesped.getValueAt(tbHuespedes.getSelectedRow(),0).toString());
+					String nombre = (String) modeloHuesped.getValueAt(tbHuespedes.getSelectedRow(), 1);
+					String apellido = (String) modeloHuesped.getValueAt(tbHuespedes.getSelectedRow(), 2);
+					LocalDate fechaNacimiento = LocalDate.parse(modeloHuesped.getValueAt(tbHuespedes.getSelectedRow(),3 ).toString());
+					String nacionalidad = (String) modeloHuesped.getValueAt(tbHuespedes.getSelectedRow(), 4);
+					String telefono = (String) modeloHuesped.getValueAt(tbHuespedes.getSelectedRow(), 5);
+					Integer id_reserva = Integer.valueOf(modeloHuesped.getValueAt(tbHuespedes.getSelectedRow(),6).toString());
+
+
+					this.huespedControlador.editarTablaHuesped (id_huesped, nombre, apellido, fechaNacimiento, nacionalidad, telefono,id_reserva);
+					JOptionPane.showMessageDialog(this, String.format("Registro Modificado con exito"));
+
+				}, ()-> JOptionPane.showMessageDialog(this, "Falta indicar valor a editar"));
+
+	}
+
+
+
+
+
+
+
+
+
+
 
 	//ocultar tabla principal al realizar la busqueda de una reserva
 	private void limpiarTablaReservas() {

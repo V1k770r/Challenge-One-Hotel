@@ -6,7 +6,9 @@ import com.AluraHotel.entity.HuespedEntity;
 import com.AluraHotel.entity.ReservasEntity;
 import com.AluraHotel.util.UtilEntity;
 import javax.persistence.EntityManager;
+import javax.persistence.criteria.CriteriaBuilder;
 import java.net.Inet4Address;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
@@ -38,7 +40,7 @@ public class ReservasControlador{
                 return this.reservasDao.buscar();
     }
 
-    public void editarTablaReserva(Integer id, String valor2, String valor3, String valor4, String valor5) {
-        this.reservasDao.editar(id, valor2,valor3,valor4,valor5);
+    public void editarTablaReserva(LocalDate fechaE, LocalDate fechaS, String valor, String formaPago, Integer id) {
+        this.reservasDao.editar(fechaE, fechaS, valor, formaPago,id);
     }
 }

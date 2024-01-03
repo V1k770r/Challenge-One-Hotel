@@ -5,6 +5,7 @@ import com.AluraHotel.entity.HuespedEntity;
 import com.AluraHotel.util.UtilEntity;
 
 import javax.persistence.EntityManager;
+import java.time.LocalDate;
 import java.util.List;
 
 public class HuespedControlador {
@@ -13,8 +14,8 @@ public class HuespedControlador {
     private EntityManager em = UtilEntity.getEntityManager();
 
 
-    public void guardar(HuespedEntity huesped) {
-        this.huespedDao.guardar(huesped);
+    public void guardar(HuespedEntity huespedes) {
+        this.huespedDao.guardar(huespedes);
     }
 
     public List<HuespedEntity> cargarHuespedes() {
@@ -27,16 +28,9 @@ public class HuespedControlador {
 
     public void EliminarHuespedById(Integer id) {
         this.huespedDao.eliminar(id);
-
     }
 
-    public List<HuespedEntity> buscarHuespedes () {
-        return this.huespedDao.buscar();
-
-    }
-
-
-    public void editarTablaHuesped(Integer id, String valor2, String valor3, String valor4, String valor5, String valor6, Integer valor7) {
-        this.huespedDao.editar(id, valor2,valor3,valor4,valor5,valor6,valor7);
+    public void editarTablaHuesped(Integer id_huesped, String nombre, String apellido, LocalDate fechaNacimiento, String nacionalidad,  String telefono,  Integer id_reserva) {
+        this.huespedDao.editar(id_huesped, nombre, apellido,fechaNacimiento,nacionalidad,telefono, id_reserva);
     }
 }
