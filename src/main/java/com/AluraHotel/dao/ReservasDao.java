@@ -21,7 +21,7 @@ public class ReservasDao {
 
     public void guardar(ReservasEntity reservas){
         this.em.getTransaction().begin();
-        this.em.merge(reservas);
+        this.em.persist(reservas);
         this.em.getTransaction().commit();
     }
 
