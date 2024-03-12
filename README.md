@@ -1,12 +1,16 @@
 # Bienvenido a la Aplicacion Hotel Alura
-![playa](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdWmNI5xiFmF6EzCDuLBsUnImcy6F8ItnGMA&usqp=CAU)
-![playa](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3mWjhHJakstP5769mOXj-VtMbWEsVQH-EzgZCxFkN43-p7L71R613mcKdOC6Qo0WdBjk&usqp=CAU)
 
-<p>
+<p align="center">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdWmNI5xiFmF6EzCDuLBsUnImcy6F8ItnGMA&usqp=CAU">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3mWjhHJakstP5769mOXj-VtMbWEsVQH-EzgZCxFkN43-p7L71R613mcKdOC6Qo0WdBjk&usqp=CAU">
+    <img  src="https://github.com/V1k770r/Challenge-One-Hotel/blob/master/Inicio.png" width="450" height="350">
+</p>
+
+<p  align="center">
     <img src="https://img.shields.io/badge/license%20-%20MIT%20-%20red">
     <img src="https://img.shields.io/badge/STATUS-EN%20DESAROLLO-green">
     <img src="https://img.shields.io/badge/release_date-2024-blue"> 
-  </p>
+</p>
 
 ## ☕ Descripción del proyecto
 
